@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OrangeNest — Chase Rummery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0D0D0D;
+      --white: #FAFAF8;
+      --gray: #6B6B6B;
+      --gray-light: #C8C8C4;
+      --rule: #E5E5E0;
+      --orange: #C4622D;
+      --sans: 'Inter', system-ui, sans-serif;
+      --serif: 'Playfair Display', Georgia, serif;
+    }
+
+    html { background: var(--white); color: var(--black); font-family: var(--sans); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 40px; background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-name { font-size: 0.85rem; font-weight: 400; color: var(--black); text-decoration: none; }
+
+    .nav-back {
+      font-size: 0.8rem; color: var(--gray); text-decoration: none;
+      display: flex; align-items: center; gap: 8px; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--black); }
+
+    /* HERO */
+    .case-hero {
+      padding: 140px 40px 80px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .case-tag {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gray);
+      margin-bottom: 20px; display: block;
+    }
+
+    .case-title {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 400; line-height: 1.1;
+      letter-spacing: -0.02em; margin-bottom: 24px;
+    }
+
+    .case-title em { font-style: italic; color: var(--orange); }
+
+    .case-subtitle {
+      font-size: 1.05rem; font-weight: 300; line-height: 1.7;
+      color: #3A3A3A; max-width: 56ch; margin-bottom: 48px;
+    }
+
+    .case-meta {
+      display: flex; flex-wrap: wrap; gap: 40px;
+      padding-top: 32px; border-top: 1px solid var(--rule);
+    }
+
+    .meta-item { display: flex; flex-direction: column; gap: 5px; }
+
+    .meta-label {
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gray-light);
+    }
+
+    .meta-value { font-size: 0.88rem; font-weight: 300; color: var(--black); }
+
+    /* COVER */
+    .case-cover { width: 100%; overflow: hidden; background: #1C1208; }
+    .case-cover img { width: 100%; display: block; max-height: 600px; object-fit: cover; object-position: top; }
+
+    /* BODY */
+    .case-body { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+    .section {
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 48px; padding: 72px 0; border-bottom: 1px solid var(--rule);
+    }
+
+    .section-label {
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray-light); padding-top: 4px;
+      position: sticky; top: 88px; align-self: start;
+    }
+
+    .section-content h2 {
+      font-family: var(--serif);
+      font-size: 1.8rem; font-weight: 400;
+      line-height: 1.2; letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+
+    .section-content h2 em { font-style: italic; color: var(--orange); }
+
+    .section-content p {
+      font-size: 0.95rem; font-weight: 300;
+      line-height: 1.85; color: #3A3A3A;
+      max-width: 62ch; margin-bottom: 16px;
+    }
+
+    .section-content p:last-child { margin-bottom: 0; }
+
+    /* ORIGIN STORY */
+    .origin-quote {
+      margin: 32px 0;
+      padding: 28px 32px;
+      border-left: 3px solid var(--orange);
+      background: #FDF8F4;
+    }
+
+    .origin-quote p {
+      font-family: var(--serif);
+      font-size: 1.05rem; font-weight: 400;
+      font-style: italic; line-height: 1.7;
+      color: var(--black); max-width: none;
+      margin: 0;
+    }
+
+    /* PAIN POINTS */
+    .pain-list {
+      margin-top: 32px;
+      display: flex; flex-direction: column; gap: 0;
+    }
+
+    .pain-item {
+      display: grid; grid-template-columns: 28px 1fr;
+      gap: 20px; padding: 24px 0;
+      border-top: 1px solid var(--rule); align-items: start;
+    }
+
+    .pain-num {
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.08em; color: var(--orange);
+      padding-top: 3px;
+    }
+
+    .pain-body { }
+
+    .pain-title {
+      font-size: 0.92rem; font-weight: 500;
+      color: var(--black); margin-bottom: 6px;
+    }
+
+    .pain-desc {
+      font-size: 0.85rem; font-weight: 300;
+      line-height: 1.75; color: var(--gray);
+    }
+
+    /* CORE INSIGHT */
+    .insight-box {
+      margin-top: 32px;
+      background: #1A1A1A;
+      padding: 36px 40px;
+      border-left: 3px solid var(--orange);
+    }
+
+    .insight-label {
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 16px; display: block;
+    }
+
+    .insight-text {
+      font-family: var(--serif);
+      font-size: 1.25rem; font-weight: 400;
+      line-height: 1.65; color: #F5F5F5 !important;
+      font-style: italic;
+    }
+
+    /* DECISIONS */
+    .decision-grid {
+      margin-top: 32px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .decision-card {
+      background: #F4F3EF; padding: 24px 28px;
+    }
+
+    .decision-label {
+      font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 10px; display: block;
+    }
+
+    .decision-title {
+      font-size: 0.9rem; font-weight: 500;
+      color: var(--black); margin-bottom: 8px;
+    }
+
+    .decision-desc {
+      font-size: 0.82rem; font-weight: 300;
+      line-height: 1.7; color: var(--gray);
+    }
+
+    /* IMAGES */
+    .image-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-top: 32px;
+    }
+
+    .image-grid img { width: 100%; display: block; background: #F0EFEB; }
+
+    .image-single { margin-top: 32px; }
+    .image-single img { width: 100%; display: block; }
+
+    .image-caption {
+      font-size: 0.72rem; font-weight: 400;
+      color: var(--gray-light); letter-spacing: 0.03em;
+      padding: 10px 0 0; display: block;
+    }
+
+    /* VALIDATION */
+    .validation-story {
+      margin-top: 32px;
+      padding: 32px 36px;
+      background: #FDF8F4;
+      border: 1px solid #EDD5BC;
+    }
+
+    .validation-label {
+      font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 16px; display: block;
+    }
+
+    .validation-story p {
+      font-size: 0.9rem; font-weight: 300;
+      line-height: 1.8; color: #3A3A3A; max-width: none;
+      margin-bottom: 12px;
+    }
+
+    .validation-story p:last-child { margin-bottom: 0; }
+
+    /* REFLECTION */
+    .reflection-list { margin-top: 28px; display: flex; flex-direction: column; gap: 0; }
+
+    .reflection-item {
+      padding: 20px 0; border-top: 1px solid var(--rule);
+      font-size: 0.9rem; font-weight: 300;
+      line-height: 1.75; color: #3A3A3A;
+    }
+
+    /* NEXT */
+    .next-project {
+      display: flex; text-decoration: none;
+      padding: 72px 40px;
+      border-top: 1px solid var(--rule);
+      justify-content: space-between; align-items: center;
+      transition: background 0.2s;
+    }
+
+    .next-project:hover { background: #F4F3EF; }
+
+    .next-label {
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray-light); margin-bottom: 10px; display: block;
+    }
+
+    .next-title {
+      font-family: var(--serif);
+      font-size: 1.8rem; font-weight: 400; color: var(--black);
+    }
+
+    .next-arrow {
+      font-size: 1.8rem; color: var(--gray-light);
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .next-project:hover .next-arrow { transform: translateX(8px); color: var(--black); }
+
+    footer {
+      border-top: 1px solid var(--rule); padding: 24px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .footer-copy { font-size: 0.75rem; color: var(--gray-light); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.75rem; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--black); }
+
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .case-hero { padding: 110px 24px 60px; }
+      .case-body { padding: 0 24px; }
+      .section { grid-template-columns: 1fr; gap: 20px; padding: 48px 0; }
+      .section-label { position: static; }
+      .decision-grid { grid-template-columns: 1fr; }
+      .image-grid { grid-template-columns: 1fr; }
+      .next-project { padding: 48px 24px; }
+      footer { flex-direction: column; gap: 12px; padding: 20px 24px; align-items: flex-start; }
+    }
+    .modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.4);backdrop-filter:blur(4px);align-items:center;justify-content:center;}
+      .modal-overlay.open{display:flex;}
+      .modal-card{background:var(--white);width:360px;max-width:calc(100vw - 48px);padding:40px;position:relative;box-shadow:0 24px 64px rgba(0,0,0,0.12);}
+      .modal-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.2rem;color:var(--gray);cursor:pointer;line-height:1;transition:color 0.2s;}
+      .modal-close:hover{color:var(--black);}
+      .modal-name{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin-bottom:4px;}
+      .modal-role{font-size:0.8rem;font-weight:300;color:var(--gray);margin-bottom:28px;}
+      .modal-divider{border:none;border-top:1px solid var(--rule);margin-bottom:24px;}
+      .modal-items{display:flex;flex-direction:column;gap:16px;}
+      .modal-item{display:flex;flex-direction:column;gap:3px;}
+      .modal-item-label{font-size:0.62rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-light);}
+      .modal-item-value{font-size:0.88rem;font-weight:300;color:var(--black);}
+      .modal-item-value a{color:var(--black);text-decoration:underline;text-underline-offset:3px;}
+    </style>
+</head>
+<body>
+
+  <nav>
+    <a href="portfolio-home-v2.dc.html" class="nav-name">Chase Rummery</a>
+    <a href="portfolio-home-v2.dc.html" class="nav-back">← Back</a>
+  </nav>
+
+  <div class="case-hero">
+    <span class="case-tag">Consumer App · Web · 2026</span>
+    <h1 class="case-title">Orange<em>Nest</em> 橙舍</h1>
+    <p class="case-subtitle">
+      A sublease platform built for UIUC international students who need housing fast. Real listings, direct WeChat contact, filters for the details that actually matter — including pets.
+    </p>
+    <div class="case-meta">
+      <div class="meta-item">
+        <span class="meta-label">Type</span>
+        <span class="meta-value">Personal project, self-initiated</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Timeline</span>
+        <span class="meta-value">2026, ongoing</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Role</span>
+        <span class="meta-value">Sole designer and developer</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Stack</span>
+        <span class="meta-value">Figma · HTML/CSS · Supabase · Vercel</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-cover">
+    <img src="img/orangenest-cover.png" alt="OrangeNest homepage" />
+  </div>
+
+  <div class="case-body">
+
+    <!-- ORIGIN -->
+    <div class="section">
+      <span class="section-label">Origin</span>
+      <div class="section-content">
+        <h2>It started with a <em>real emergency</em></h2>
+        <p>A friend needed short-term housing near UIUC on short notice. I spent hours making calls, adding strangers on WeChat, and refreshing Xiaohongshu — operating at 1pm US time while every contact in China was still asleep.</p>
+
+        <div class="origin-quote">
+          <p>"We eventually found a place because someone happened to see our wanted post and reached out. Luck is not a product."</p>
+        </div>
+
+        <p>The problem wasn't a lack of housing or a lack of people looking to sublease. It was that both sides had no reliable way to find each other quickly. That gap is what OrangeNest was built to close.</p>
+      </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <div class="section">
+      <span class="section-label">The Problem</span>
+      <div class="section-content">
+        <h2>Six problems, <em>one impossible search</em></h2>
+        <p>The housing search surfaced six distinct pain points, all layered on top of each other:</p>
+
+        <div class="pain-list">
+          <div class="pain-item">
+            <span class="pain-num">01</span>
+            <div class="pain-body">
+              <div class="pain-title">Time zone friction</div>
+              <p class="pain-desc">Searching at 1–2pm US time means agents and contacts in China aren't active yet. For a last-minute need, a few hours of waiting is the difference between finding housing and not.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <span class="pain-num">02</span>
+            <div class="pain-body">
+              <div class="pain-title">Unreliable intermediaries</div>
+              <p class="pain-desc">"I'll check for you." "Add me on WeChat." "Leave your number." Every agent had a version of this. None of them followed through. The problem wasn't the absence of agents — it was having no way to know if any of them would actually deliver.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <span class="pain-num">03</span>
+            <div class="pain-body">
+              <div class="pain-title">Scattered information</div>
+              <p class="pain-desc">Xiaohongshu required constant searching, posting wanted listings, and manually filtering through posts with no indication of availability. Finding a listing meant another round of WeChat messages before anything was confirmed.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <span class="pain-num">04</span>
+            <div class="pain-body">
+              <div class="pain-title">Short-term supply is thin</div>
+              <p class="pain-desc">Most platforms carry long-term leases. Agents confirmed this directly: for stays around a month, sublease is the only realistic option. The need wasn't "find an apartment" — it was "find someone who's leaving and willing to hand over their lease temporarily."</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <span class="pain-num">05</span>
+            <div class="pain-body">
+              <div class="pain-title">Pet restrictions narrow the pool further</div>
+              <p class="pain-desc">My friend has a cat. A listing that looked perfect on every other dimension could still fall through at the last step. This filter needed to be surfaced upfront, not buried in a conversation.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <span class="pain-num">06</span>
+            <div class="pain-body">
+              <div class="pain-title">No single source of truth</div>
+              <p class="pain-desc">The core problem wasn't any one of the above. It was that there was nowhere to see which subleases were actually available right now, with move-in date, end date, price, pet policy, and direct contact visible up front.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <span class="insight-label">Core Insight</span>
+          <p class="insight-text">This wasn't a housing problem. It was a last-minute matching problem. Supply and demand existed simultaneously — they just had no shared, reliable place to meet.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESIGN -->
+    <div class="section">
+      <span class="section-label">Design Decisions</span>
+      <div class="section-content">
+        <h2>Every choice came from <em>the search itself</em></h2>
+        <p>I didn't run formal user interviews for this project. The research was my own experience — and being the person with the need made the product requirements unusually clear. I knew exactly what information I needed before deciding to contact someone.</p>
+
+        <div class="decision-grid">
+          <div class="decision-card">
+            <span class="decision-label">Brand</span>
+            <div class="decision-title">Sunset orange from Champaign itself</div>
+            <p class="decision-desc">Orange is UIUC's primary school color. For students searching for housing near campus, the connection is immediate. The palette pulls warm, residential, not corporate — closer to high-end real estate than a generic rental app.</p>
+          </div>
+          <div class="decision-card">
+            <span class="decision-label">Contact</span>
+            <div class="decision-title">WeChat-first, no middleman</div>
+            <p class="decision-desc">This is how the UIUC Chinese student community already communicates. Adding another messaging layer would have recreated the exact friction the platform was built to remove.</p>
+          </div>
+          <div class="decision-card">
+            <span class="decision-label">Listing card</span>
+            <div class="decision-title">Six things before you decide to contact</div>
+            <p class="decision-desc">Address, price, available from and to, occupancy dates, pet policy, urgency flag. Everything a searcher needs to decide whether it's worth reaching out — visible without clicking through.</p>
+          </div>
+          <div class="decision-card">
+            <span class="decision-label">Publish flow</span>
+            <div class="decision-title">Three steps, low commitment</div>
+            <p class="decision-desc">Most sublease platforms ask for too much upfront. Three steps keeps the barrier low enough that someone with a lease to hand off will actually post — not abandon the form halfway.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREENS -->
+    <div class="section">
+      <span class="section-label">The Product</span>
+      <div class="section-content">
+        <h2>Built and <em>deployed</em></h2>
+        <p>A working platform with real backend infrastructure, not just a Figma prototype.</p>
+
+        <div class="image-grid">
+          <div>
+            <img src="img/orangenest-2.png" alt="Availability calendar and map" />
+            <span class="image-caption">Availability calendar with Google Maps integration</span>
+          </div>
+          <div>
+            <img src="img/orangenest-3.png" alt="Shareable listing card" />
+            <span class="image-caption">Shareable listing card — designed for WeChat group sharing</span>
+          </div>
+        </div>
+
+        <div class="image-single">
+          <img src="img/orangenest-cover.png" alt="OrangeNest homepage" />
+          <span class="image-caption">Homepage with hero, feature tags, and call to action</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALIDATION -->
+    <div class="section">
+      <span class="section-label">Early Validation</span>
+      <div class="section-content">
+        <h2>Someone recommended it <em>to me</em></h2>
+
+        <div class="validation-story">
+          <span class="validation-label">What happened</span>
+          <p>After posting a demo video on Xiaohongshu, a student I had previously contacted during my own housing search reached out — not knowing I had built it. He forwarded my video to me and said he thought it looked useful, that it was made by a UIUC student, and that I should check it out if I ever needed housing again.</p>
+          <p>He had a unit available but was back in China at the time, trying to find a sublease quickly. We had spoken earlier but couldn't agree on price and move-in dates. He didn't know he was recommending my own product to me.</p>
+          <p>That moment confirmed two things: the problem is real enough that people recognize the solution when they see it, and the gap between supply and demand exists on both sides simultaneously.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECH -->
+    <div class="section">
+      <span class="section-label">Technical Build</span>
+      <div class="section-content">
+        <h2>Learned the stack <em>by building it</em></h2>
+        <p>I used this project as the context for learning Supabase — setting up the listings table, row-level security policies, and a public storage bucket for listing photos. The front-end is HTML and CSS. Deployed on Vercel.</p>
+        <p>The stack was chosen to minimize cost and maximize iteration speed. The entire platform runs for free at current scale. A Figma prototype of a housing platform is an argument. A deployed platform with a working database is evidence.</p>
+      </div>
+    </div>
+
+    <!-- REFLECTION -->
+    <div class="section">
+      <span class="section-label">Reflection</span>
+      <div class="section-content">
+        <h2>What comes <em>next</em></h2>
+
+        <div class="reflection-list">
+          <div class="reflection-item">
+            A WeChat mini-program version. That's where the actual target users already spend most of their time. A web platform solves discovery; a mini-program would solve the whole workflow.
+          </div>
+          <div class="reflection-item">
+            A lightweight availability verification layer. The absence of this is exactly what made Xiaohongshu frustrating — listings with no indication of whether they're still available. Even a simple "last confirmed available" timestamp would help.
+          </div>
+          <div class="reflection-item">
+            The biggest constraint I self-imposed was learning the full stack while building. It slowed the timeline, but it meant every part of the product was something I understood completely — not a black box I'd designed around.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <a class="next-project" href="mailmind.html">
+    <div>
+      <span class="next-label">Previous Project</span>
+      <div class="next-title">MailMind</div>
+    </div>
+    <span class="next-arrow">→</span>
+  </a>
+
+  <footer>
+    <span class="footer-copy">Chase Rummery · 2026</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/chase-rummery" target="_blank">LinkedIn</a>
+      <a href="#" onclick="openContact(event)">Contact</a>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="contactModal" onclick="closeContactOutside(event)">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeContact()">×</button>
+      <div class="modal-name">Chase Rummery</div>
+      <div class="modal-role">Product Design · HCI · UIUC iSchool</div>
+      <hr class="modal-divider" />
+      <div class="modal-items">
+        <div class="modal-item"><span class="modal-item-label">Email</span><span class="modal-item-value"><a href="mailto:chaserummery@gmail.com">chaserummery@gmail.com</a></span></div>
+        <div class="modal-item"><span class="modal-item-label">LinkedIn</span><span class="modal-item-value"><a href="https://linkedin.com/in/chase-rummery" target="_blank">linkedin.com/in/chase-rummery</a></span></div>
+        <div class="modal-item"><span class="modal-item-label">Based in</span><span class="modal-item-value">Champaign, IL</span></div>
+        <div class="modal-item"><span class="modal-item-label">Available</span><span class="modal-item-value">Summer 2027 internship</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function openContact(e){e.preventDefault();document.getElementById("contactModal").classList.add("open");}
+    function closeContact(){document.getElementById("contactModal").classList.remove("open");}
+    function closeContactOutside(e){if(e.target===document.getElementById("contactModal"))closeContact();}
+    document.addEventListener("keydown",function(e){if(e.key==="Escape")closeContact();});
+  </script>
+</body>
+</html>
