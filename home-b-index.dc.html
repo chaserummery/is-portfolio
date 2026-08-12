@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #0C1622; }
+  * { box-sizing: border-box; }
+  a { color: #EFEBE2; text-decoration: none; }
+  a:hover { color: #FF5A38; }
+  ::selection { background: #FF5A38; color: #0C1622; }
+  @keyframes riseB { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+</style>
+</helmet>
+<div data-root="1" style="min-height: 100vh; background: #0C1622; color: #EFEBE2; font-family: 'Schibsted Grotesk', system-ui, sans-serif; position: relative; overflow: hidden; cursor: none;">
+
+  <div data-ring="1" style="position: fixed; left: 0; top: 0; width: 26px; height: 26px; border: 1px solid #FF5A38; border-radius: 999px; pointer-events: none; z-index: 90; transform: translate(-100px, -100px); transition: width 0.2s, height 0.2s, background 0.2s;"></div>
+  <div data-peek="1" style="position: fixed; left: 0; top: 0; width: 300px; z-index: 80; pointer-events: none; opacity: 0; transition: opacity 0.25s; transform: translate(-999px, -999px);">
+    <img data-peekimg="1" alt="" style="width: 100%; height: 200px; object-fit: cover; object-position: top; display: block; background: #16273A; border: 1px solid #EFEBE21F;" />
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 26px 44px; font-size: 12px; font-family: 'JetBrains Mono', monospace; position: relative; z-index: 5;">
+    <span data-zh="韩馨如 Chase Xinru Rummery">Chase Xinru Rummery</span>
+    <div style="display: flex; gap: 26px; align-items: baseline;">
+      <a href="#about" data-zh="关于">About</a>
+      <a href="#contact" data-zh="联系">Contact</a>
+      <button onClick="{{ toggleLang }}" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; background: none; border: 1px solid #EFEBE23D; border-radius: 999px; padding: 5px 12px; cursor: none; color: #EFEBE2;" style-hover="border-color: #FF5A38; color: #FF5A38;">中 / EN</button>
+    </div>
+  </div>
+
+  <div style="padding: 76px 44px 54px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; border-bottom: 1px solid #EFEBE21F;">
+    <h1 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(44px, 8vw, 128px); line-height: 0.94; letter-spacing: -0.03em; margin: 0; max-width: 16ch;">
+      <span style="display: block; animation: riseB 0.7s ease both;">I design</span>
+      <span style="display: block; color: #EFEBE2A6; animation: riseB 0.7s 0.1s ease both;">systems that</span>
+      <span style="display: block; color: #FF5A38; font-style: italic; animation: riseB 0.7s 0.2s ease both;">think.</span>
+    </h1>
+    <p data-zh="信息科学 · UIUC。一半芝加哥，一半上海。设计 × AI。三个项目，都在下面。" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; line-height: 2; letter-spacing: 0.04em; color: #EFEBE299; max-width: 30ch; margin: 0;">Information Science · UIUC. Half Chicago, half Shanghai. Design × AI. Three projects, listed below.</p>
+  </div>
+
+  <div id="work">
+    <a data-row="1" data-img="img/mailmind-cover.png" href="mailmind.html" style="display: grid; grid-template-columns: 64px 1fr 300px 40px; gap: 24px; align-items: center; padding: 34px 44px; border-bottom: 1px solid #EFEBE21F; position: relative; z-index: 4;" style-hover="background: #12202F;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #EFEBE266;">01</span>
+      <span style="font-family: 'Instrument Serif', serif; font-size: clamp(28px, 4vw, 54px); letter-spacing: -0.02em;">MailMind</span>
+      <span data-zh="AI 邮件整理 · HCI · 移动端" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.05em; color: #EFEBE299;">AI email triage · HCI · Mobile</span>
+      <span style="font-size: 20px; color: #EFEBE266;">→</span>
+    </a>
+    <a data-row="1" data-img="img/orangenest-cover.png" href="orangenest.html" style="display: grid; grid-template-columns: 64px 1fr 300px 40px; gap: 24px; align-items: center; padding: 34px 44px; border-bottom: 1px solid #EFEBE21F; position: relative; z-index: 4;" style-hover="background: #12202F;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #EFEBE266;">02</span>
+      <span style="font-family: 'Instrument Serif', serif; font-size: clamp(28px, 4vw, 54px); letter-spacing: -0.02em;">OrangeNest 橙舍</span>
+      <span data-zh="转租平台 · 端到端 · 已上线" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.05em; color: #EFEBE299;">Sublease platform · End-to-end · Shipped</span>
+      <span style="font-size: 20px; color: #EFEBE266;">→</span>
+    </a>
+    <a data-row="1" data-img="img/imap-1.png" href="imap.html" style="display: grid; grid-template-columns: 64px 1fr 300px 40px; gap: 24px; align-items: center; padding: 34px 44px; border-bottom: 1px solid #EFEBE21F; position: relative; z-index: 4;" style-hover="background: #12202F;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #EFEBE266;">03</span>
+      <span style="font-family: 'Instrument Serif', serif; font-size: clamp(28px, 4vw, 54px); letter-spacing: -0.02em;">iMAP</span>
+      <span data-zh="校园导航 · 无障碍 · 系统设计" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.05em; color: #EFEBE299;">Campus navigation · Accessibility · Systems</span>
+      <span style="font-size: 20px; color: #EFEBE266;">→</span>
+    </a>
+  </div>
+
+  <div style="padding: 44px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #EFEBE266;">
+    <span data-zh="悬停任意一行，看预览">Hover a row for a preview</span>
+    <span>chaserummery@gmail.com</span>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { zh: false };
+
+  renderVals() {
+    return { toggleLang: () => this.swap() };
+  }
+
+  swap() {
+    const zh = !this.state.zh;
+    this.setState({ zh });
+    document.querySelectorAll('[data-zh]').forEach(n => {
+      if (!n.dataset.en) n.dataset.en = n.textContent;
+      n.textContent = zh ? n.dataset.zh : n.dataset.en;
+      n.style.fontFamily = zh ? "'Noto Serif SC', serif" : '';
+    });
+  }
+
+  componentDidMount() {
+    const ring = document.querySelector('[data-ring]');
+    const peek = document.querySelector('[data-peek]');
+    const peekImg = document.querySelector('[data-peekimg]');
+    let tx = 0, ty = 0, cx = 0, cy = 0, px = 0, py = 0;
+
+    this.onMove = e => { tx = e.clientX; ty = e.clientY; };
+    window.addEventListener('mousemove', this.onMove);
+
+    const loop = () => {
+      cx += (tx - cx) * 0.22; cy += (ty - cy) * 0.22;
+      px += (tx - px) * 0.09; py += (ty - py) * 0.09;
+      if (ring) ring.style.transform = 'translate(' + (cx - 13) + 'px,' + (cy - 13) + 'px)';
+      if (peek) peek.style.transform = 'translate(' + (px + 28) + 'px,' + (py - 100) + 'px)';
+      this.raf = requestAnimationFrame(loop);
+    };
+    loop();
+
+    document.querySelectorAll('[data-row]').forEach(row => {
+      row.addEventListener('mouseenter', () => {
+        if (peekImg) peekImg.src = row.dataset.img;
+        if (peek) peek.style.opacity = '1';
+        if (ring) { ring.style.width = '58px'; ring.style.height = '58px'; ring.style.background = '#FF5A3826'; }
+      });
+      row.addEventListener('mouseleave', () => {
+        if (peek) peek.style.opacity = '0';
+        if (ring) { ring.style.width = '26px'; ring.style.height = '26px'; ring.style.background = 'transparent'; }
+      });
+    });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousemove', this.onMove);
+    cancelAnimationFrame(this.raf);
+  }
+}
+
+</script>
+</body>
+</html>

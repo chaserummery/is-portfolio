@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #F2F0EA; }
+  * { box-sizing: border-box; }
+  a { color: #12283F; text-decoration: none; }
+  a:hover { color: #E0472C; }
+  ::selection { background: #E0472C; color: #F2F0EA; }
+  @keyframes riseA { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #F2F0EA; color: #12283F; font-family: 'Schibsted Grotesk', system-ui, sans-serif; background-image: linear-gradient(#12283F0D 1px, transparent 1px), linear-gradient(90deg, #12283F0D 1px, transparent 1px); background-size: 64px 64px; overflow: hidden; position: relative;">
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 26px 40px; font-size: 12px; letter-spacing: 0.02em; position: relative; z-index: 5;">
+    <span data-zh="Chase Xinru Rummery ｜ 韩馨如" style="font-family: 'JetBrains Mono', monospace;">Chase Xinru Rummery</span>
+    <div style="display: flex; gap: 28px; align-items: baseline; font-family: 'JetBrains Mono', monospace;">
+      <a href="#work" data-zh="作品">Work</a>
+      <a href="#about" data-zh="关于">About</a>
+      <a href="#contact" data-zh="联系">Contact</a>
+      <button onClick="{{ toggleLang }}" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; background: none; border: 1px solid #12283F33; border-radius: 999px; padding: 5px 12px; cursor: pointer; color: #12283F;" style-hover="border-color: #E0472C; color: #E0472C;">中 / EN</button>
+    </div>
+  </div>
+
+  <div style="padding: 90px 40px 40px; position: relative; z-index: 3;">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #12283F80; margin-bottom: 34px;" data-zh="信息科学 · 伊利诺伊大学香槟分校 · 设计 × AI">Information Science · UIUC · Design × AI</div>
+    <h1 data-hero="1" style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(48px, 9.5vw, 152px); line-height: 0.92; letter-spacing: -0.03em; margin: 0; max-width: 15ch;">
+      <span style="display: block; animation: riseA 0.7s ease both;">I design</span>
+      <span style="display: block; color: #12283FA6; animation: riseA 0.7s 0.09s ease both;">systems that</span>
+      <span style="display: block; color: #E0472C; font-style: italic; animation: riseA 0.7s 0.18s ease both;">think.</span>
+    </h1>
+    <p data-zh="一半在芝加哥，一半在上海。我做那种自己会解释清楚的界面 —— 现在多半是关于 AI 的。往下拖，看看散落在桌面上的三个项目。" style="max-width: 46ch; font-size: 15px; line-height: 1.75; color: #12283FBF; margin: 46px 0 0;">Half Chicago, half Shanghai. I build interfaces that explain themselves — lately, mostly the ones with a model behind them. Drag the tiles below; nothing is nailed down.</p>
+  </div>
+
+  <div id="work" data-field="1" style="position: relative; height: 560px; margin: 10px 40px 0;">
+    <a data-drag="1" href="mailmind.html" style="position: absolute; left: 2%; top: 20px; width: 300px; background: #F2F0EA; border: 1px solid #12283F26; padding: 14px; cursor: grab; box-shadow: 0 18px 40px #12283F14; transform: rotate(-1.6deg);">
+      <img src="img/mailmind-cover.png" alt="MailMind" style="width: 100%; height: 168px; object-fit: cover; object-position: top; display: block; background: #12283F0D; pointer-events: none;" />
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px;">
+        <span style="font-family: 'Instrument Serif', serif; font-size: 26px;">MailMind</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #12283F80;">01</span>
+      </div>
+      <div data-zh="AI 邮件整理 · HCI · 移动端" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; color: #12283F99; margin-top: 4px;">AI email triage · HCI · Mobile</div>
+    </a>
+
+    <a data-drag="1" href="orangenest.html" style="position: absolute; left: 34%; top: 132px; width: 300px; background: #F2F0EA; border: 1px solid #12283F26; padding: 14px; cursor: grab; box-shadow: 0 18px 40px #12283F14; transform: rotate(1.2deg);">
+      <img src="img/orangenest-cover.png" alt="OrangeNest" style="width: 100%; height: 168px; object-fit: cover; object-position: top; display: block; background: #12283F0D; pointer-events: none;" />
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px;">
+        <span style="font-family: 'Instrument Serif', serif; font-size: 26px;">OrangeNest 橙舍</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #12283F80;">02</span>
+      </div>
+      <div data-zh="转租平台 · 端到端 · 已上线" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; color: #12283F99; margin-top: 4px;">Sublease platform · End-to-end · Shipped</div>
+    </a>
+
+    <a data-drag="1" href="imap.html" style="position: absolute; left: 66%; top: 28px; width: 300px; background: #F2F0EA; border: 1px solid #12283F26; padding: 14px; cursor: grab; box-shadow: 0 18px 40px #12283F14; transform: rotate(-0.8deg);">
+      <img src="img/imap-1.png" alt="iMAP" style="width: 100%; height: 168px; object-fit: cover; object-position: top; display: block; background: #12283F0D; pointer-events: none;" />
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px;">
+        <span style="font-family: 'Instrument Serif', serif; font-size: 26px;">iMAP</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #12283F80;">03</span>
+      </div>
+      <div data-zh="校园导航 · 无障碍 · 系统设计" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; color: #12283F99; margin-top: 4px;">Campus navigation · Accessibility · Systems</div>
+    </a>
+
+    <div data-zh="↑ 拖动看看" style="position: absolute; left: 2%; bottom: 30px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #12283F66;">↑ drag them around</div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { zh: false };
+
+  renderVals() {
+    return { toggleLang: () => this.swap() };
+  }
+
+  swap() {
+    const zh = !this.state.zh;
+    this.setState({ zh });
+    const root = this.el || document;
+    root.querySelectorAll('[data-zh]').forEach(n => {
+      if (!n.dataset.en) n.dataset.en = n.textContent;
+      n.textContent = zh ? n.dataset.zh : n.dataset.en;
+      n.style.fontFamily = zh ? "'Noto Serif SC', serif" : '';
+    });
+  }
+
+  componentDidMount() {
+    this.el = document.querySelector('[data-field="1"]')?.closest('div');
+    this.initDrag();
+  }
+
+  initDrag() {
+    document.querySelectorAll('[data-drag]').forEach(card => {
+      let sx = 0, sy = 0, dx = 0, dy = 0, ox = 0, oy = 0, moved = false, z = 10;
+      const down = e => {
+        e.preventDefault();
+        moved = false;
+        sx = e.clientX; sy = e.clientY; ox = dx; oy = dy;
+        card.style.cursor = 'grabbing';
+        card.style.zIndex = ++z + 20;
+        card.style.transition = 'none';
+        const move = ev => {
+          dx = ox + ev.clientX - sx; dy = oy + ev.clientY - sy;
+          if (Math.abs(dx - ox) + Math.abs(dy - oy) > 4) moved = true;
+          card.style.transform = 'translate(' + dx + 'px,' + dy + 'px) rotate(' + (dx * 0.012) + 'deg)';
+        };
+        const up = () => {
+          card.style.cursor = 'grab';
+          window.removeEventListener('mousemove', move);
+          window.removeEventListener('mouseup', up);
+        };
+        window.addEventListener('mousemove', move);
+        window.addEventListener('mouseup', up);
+      };
+      card.addEventListener('mousedown', down);
+      card.addEventListener('click', e => { if (moved) e.preventDefault(); });
+    });
+  }
+}
+
+</script>
+</body>
+</html>

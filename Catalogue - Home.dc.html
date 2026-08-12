@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #EFE9DC; }
+  * { box-sizing: border-box; }
+  a { color: #1B3A6B; text-decoration: none; }
+  a:hover { color: #B3402F; }
+  ::selection { background: #1B3A6B; color: #EFE9DC; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  @keyframes blink { 50% { opacity: 0.25; } }
+  @media (max-width: 1020px) {
+    [data-card] { grid-template-columns: 88px minmax(0, 1fr) !important; }
+    [data-card] > div:nth-child(3) { grid-column: 2; min-height: 200px; }
+    [data-stamp] { right: 20px !important; bottom: 20px !important; }
+  }
+  @media (max-width: 720px) {
+    [data-card] { grid-template-columns: minmax(0, 1fr) !important; }
+    [data-card] > div:nth-child(1) { border-right: none !important; border-bottom: 1px solid #16202B1F; padding-right: 0 !important; padding-bottom: 10px; }
+    [data-card] > div:nth-child(3) { grid-column: 1; }
+  }
+</style>
+</helmet>
+
+<div style="background: #EFE9DC; color: #16202B; font-family: 'Libre Franklin', system-ui, sans-serif; overflow-x: hidden;">
+
+  <div data-intro="1" style="position: fixed; inset: 0; z-index: 200; background: #EFE9DC; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 34px; transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase; color: #16202B99;">Card Catalogue · Drawer 004</div>
+    <div style="font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(40px, 8vw, 104px); line-height: 1; letter-spacing: -0.02em; text-align: center; display: flex; align-items: center; gap: 0.34em; flex-wrap: wrap; justify-content: center;"><span style="font-family: 'Noto Serif SC', serif;">索引</span><span style="width: 1px; height: 0.62em; background: #16202B40;"></span><span style="font-style: italic; color: #1B3A6B;">The Catalogue</span></div>
+    <div style="width: 260px; height: 1px; background: #16202B33;"></div>
+    <div style="display: flex; gap: 26px; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 11.5px;">
+      <button data-open="1" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; background: #1B3A6B; color: #EFE9DC; border: none; padding: 15px 30px; cursor: pointer;" style-hover="background: #B3402F;">Pull the drawer 拉开抽屉</button>
+      <button data-open="1" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; background: none; border: none; color: #16202B80; cursor: pointer; text-decoration: underline; text-underline-offset: 4px;" style-hover="color: #16202B;">skip →</button>
+    </div>
+  </div>
+
+  <div style="position: sticky; top: 0; z-index: 60; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 13px 28px; background: #EFE9DCF2; backdrop-filter: blur(8px); border-bottom: 1px solid #16202B26; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;">
+    <span data-zh="馆藏卡 · 韩馨如" style="color: #16202B99;">Catalogue card · Han, Chase Xinru</span>
+    <div style="display: flex; gap: 22px; align-items: center;">
+      <a href="#cards" data-zh="卡片">Cards</a>
+      <a href="#machine" data-zh="试读">Reading room</a>
+      <a href="#about" data-zh="关于">About</a>
+      <button onClick="{{ toggleLang }}" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; background: none; border: 1px solid #16202B40; padding: 5px 11px; cursor: pointer; color: #16202B;" style-hover="border-color: #B3402F; color: #B3402F;">中 / EN</button>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 96px 1fr; border-bottom: 1px solid #16202B26;">
+    <div style="border-right: 1px solid #16202B26; padding: 34px 0; display: flex; justify-content: center;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.24em; writing-mode: vertical-rl; color: #1B3A6B;">004.019 · HAN · 2026</div>
+    </div>
+    <div style="padding: 74px 40px 46px;">
+      <div data-zh="第 00 号条目 — 编目人本人" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #16202B80; margin-bottom: 30px;">Entry No. 00 — the cataloguer herself</div>
+      <h1 style="font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 400; font-size: clamp(42px, 7.6vw, 118px); line-height: 0.98; letter-spacing: -0.025em; margin: 0;">
+        Chase Xinru<br />Rummery <span style="font-family: 'Noto Serif SC', serif; color: #1B3A6B;">韩馨如</span>
+      </h1>
+      <p data-zh="我把混乱的信息整理成人们真正找得到的东西 —— 界面、系统，以及最近的 AI 工具。一半芝加哥，一半上海；在 UIUC 读信息科学。" style="font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(18px, 2vw, 26px); line-height: 1.55; max-width: 30ch; margin: 34px 0 0; color: #16202BD9;">I turn messy information into things people can actually find — interfaces, systems, and lately AI tools. Half Chicago, half Shanghai; Information Science at UIUC.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 1px; background: #16202B26; margin-top: 52px; border: 1px solid #16202B26;">
+        <div style="background: #EFE9DC; padding: 16px 18px;"><div data-zh="分类" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #16202B80; margin-bottom: 7px;">Classification</div><div data-zh="交互设计 / AI 产品" style="font-size: 13.5px;">Interaction design / AI products</div></div>
+        <div style="background: #EFE9DC; padding: 16px 18px;"><div data-zh="馆藏地" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #16202B80; margin-bottom: 7px;">Location</div><div data-zh="伊利诺伊州香槟市 · 可远程" style="font-size: 13.5px;">Champaign, IL · remote-friendly</div></div>
+        <div style="background: #EFE9DC; padding: 16px 18px;"><div data-zh="语言" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #16202B80; margin-bottom: 7px;">Language</div><div data-zh="英文 · 中文（双语工作）" style="font-size: 13.5px;">English · 中文 (bilingual)</div></div>
+        <div style="background: #EFE9DC; padding: 16px 18px;"><div data-zh="状态" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #16202B80; margin-bottom: 7px;">Status</div><div data-zh="可借出 — 2027 夏季实习" style="font-size: 13.5px; color: #B3402F;">Available — Summer 2027 internship</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="overflow: hidden; border-bottom: 1px solid #16202B26; padding: 13px 0; background: #1B3A6B; color: #EFE9DC;">
+    <div style="display: flex; width: max-content; animation: ticker 34s linear infinite; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;">
+      <span style="padding-right: 26px;">Information architecture ✳ AI prototyping ✳ HCI research ✳ 双语设计 ✳ Interaction design ✳ Design systems ✳ Front-end ✳ 信息科学 ✳&nbsp;</span>
+      <span style="padding-right: 26px;">Information architecture ✳ AI prototyping ✳ HCI research ✳ 双语设计 ✳ Interaction design ✳ Design systems ✳ Front-end ✳ 信息科学 ✳&nbsp;</span>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 96px 1fr; border-bottom: 1px solid #16202B26;">
+    <div style="border-right: 1px solid #16202B26;"></div>
+    <div style="padding: 60px 40px;">
+      <div data-zh="读者须知 — 选一个身份" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #16202B80; margin-bottom: 22px;">Note to the reader — pick a desk</div>
+      <div data-tabs="1" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px;">
+        <button data-tab="0" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; padding: 9px 15px; border: 1px solid #1B3A6B; background: #1B3A6B; color: #EFE9DC; cursor: pointer;">Recruiters</button>
+        <button data-tab="1" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; padding: 9px 15px; border: 1px solid #16202B40; background: none; color: #16202B; cursor: pointer;">Design teams</button>
+        <button data-tab="2" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; padding: 9px 15px; border: 1px solid #16202B40; background: none; color: #16202B; cursor: pointer;">AI teams</button>
+        <button data-tab="3" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; padding: 9px 15px; border: 1px solid #16202B40; background: none; color: #16202B; cursor: pointer;">Anyone else</button>
+      </div>
+      <p data-desk="1" style="font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(17px, 1.7vw, 23px); line-height: 1.65; max-width: 58ch; margin: 0; min-height: 4.6em;">Three shipped-or-nearly-shipped projects, one of them live with real users. I do the research, the interface, and enough of the code that engineers don't have to guess what I meant.</p>
+    </div>
+  </div>
+
+  <div id="cards" style="display: grid; grid-template-columns: 96px 1fr; border-bottom: 1px solid #16202B26;">
+    <div style="border-right: 1px solid #16202B26; padding: 34px 0; display: flex; justify-content: center;">
+      <div data-zh="卡片" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.24em; writing-mode: vertical-rl; text-transform: uppercase; color: #16202B80;">The cards</div>
+    </div>
+    <div style="padding: 60px 40px 74px;">
+      <h2 data-zh="三张卡片，&lt;span style=&quot;font-style: italic; color: #1B3A6B;&quot;&gt;从抽屉里抽出来&lt;/span&gt;" style="font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 400; font-size: clamp(30px, 4.4vw, 62px); line-height: 1.06; letter-spacing: -0.02em; margin: 0 0 44px;">Three cards, <span style="font-style: italic; color: #1B3A6B;">pulled from the drawer</span></h2>
+
+      <div style="display: flex; flex-direction: column; gap: 26px;">
+
+        <a data-card="1" href="mailmind.html" style="display: grid; grid-template-columns: 118px minmax(0, 1fr) minmax(0, 330px); gap: 30px; background: #F7F3E9; border: 1px solid #16202B33; padding: 26px 28px; position: relative; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s; box-shadow: 0 2px 0 #16202B14;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; line-height: 1.9; letter-spacing: 0.06em; color: #1B3A6B; border-right: 1px solid #16202B1F; padding-right: 12px;">006.3<br />MAIL<br /><span style="color: #16202B80;">2026</span></div>
+          <div>
+            <div style="font-family: 'Libre Caslon Text', serif; font-size: clamp(26px, 3vw, 40px); line-height: 1.1; letter-spacing: -0.02em;">MailMind</div>
+            <div data-zh="面向大学生的 AI 邮件整理器" style="font-family: 'Noto Serif SC', 'Libre Caslon Text', serif; font-size: 15px; color: #16202B99; margin-top: 5px;">An AI email organizer for college students</div>
+            <p data-zh="自动抽出截止日期、紧急通知和取件提醒 —— 收件箱不再是一份需要破译的待办清单。三轮迭代，五月 iSchool Lightning Talk 演示。" style="font-size: 13.5px; line-height: 1.75; color: #16202BC7; max-width: 52ch; margin: 16px 0 0;">Surfaces deadlines, emergency alerts and package arrivals automatically. Three design iterations, presented at the iSchool Lightning Talk in May 2026.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span style="border: 1px solid #16202B33; padding: 4px 9px;">HCI</span><span style="border: 1px solid #16202B33; padding: 4px 9px;">AI</span><span style="border: 1px solid #16202B33; padding: 4px 9px;">Mobile</span><span style="border: 1px solid #16202B33; padding: 4px 9px;">Figma · React</span>
+            </div>
+          </div>
+          <div style="align-self: stretch; overflow: hidden; background: #16202B0D;">
+            <img src="img/mailmind-cover.png" alt="MailMind screens" style="width: 100%; height: 100%; min-height: 190px; object-fit: cover; object-position: top; display: block;" />
+          </div>
+          <div data-stamp="1" style="position: absolute; right: 342px; bottom: 20px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #B3402F; border: 1.5px solid #B3402F; padding: 6px 11px; transform: rotate(-7deg) scale(0.94); opacity: 0; transition: opacity 0.3s, transform 0.3s;">Open card →</div>
+        </a>
+
+        <a data-card="1" href="orangenest.html" style="display: grid; grid-template-columns: 118px minmax(0, 1fr) minmax(0, 330px); gap: 30px; background: #F7F3E9; border: 1px solid #16202B33; padding: 26px 28px; position: relative; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s; box-shadow: 0 2px 0 #16202B14;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; line-height: 1.9; letter-spacing: 0.06em; color: #1B3A6B; border-right: 1px solid #16202B1F; padding-right: 12px;">333.5<br />ORNG<br /><span style="color: #16202B80;">2026</span></div>
+          <div>
+            <div style="font-family: 'Libre Caslon Text', serif; font-size: clamp(26px, 3vw, 40px); line-height: 1.1; letter-spacing: -0.02em;">OrangeNest <span style="font-family: 'Noto Serif SC', serif; color: #1B3A6B;">橙舍</span></div>
+            <div data-zh="为 UIUC 国际学生做的转租平台" style="font-family: 'Noto Serif SC', 'Libre Caslon Text', serif; font-size: 15px; color: #16202B99; margin-top: 5px;">A sublease platform for UIUC international students</div>
+            <p data-zh="真实房源、直接微信联系、按真正在意的条件筛选（包括宠物）。设计与开发都由我一人完成，已上线。" style="font-size: 13.5px; line-height: 1.75; color: #16202BC7; max-width: 52ch; margin: 16px 0 0;">Real listings, direct WeChat contact, filters for the details that actually matter — including pets. Sole designer and developer; shipped.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span style="border: 1px solid #16202B33; padding: 4px 9px;">End-to-end</span><span style="border: 1px solid #16202B33; padding: 4px 9px;">Web</span><span style="border: 1px solid #16202B33; padding: 4px 9px;">Supabase · Vercel</span>
+            </div>
+          </div>
+          <div style="align-self: stretch; overflow: hidden; background: #16202B0D;">
+            <img src="img/orangenest-cover.png" alt="OrangeNest screens" style="width: 100%; height: 100%; min-height: 190px; object-fit: cover; object-position: top; display: block;" />
+          </div>
+          <div data-stamp="1" style="position: absolute; right: 342px; bottom: 20px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #B3402F; border: 1.5px solid #B3402F; padding: 6px 11px; transform: rotate(-7deg) scale(0.94); opacity: 0; transition: opacity 0.3s, transform 0.3s;">Open card →</div>
+        </a>
+
+        <a data-card="1" href="imap.html" style="display: grid; grid-template-columns: 118px minmax(0, 1fr) minmax(0, 330px); gap: 30px; background: #F7F3E9; border: 1px solid #16202B33; padding: 26px 28px; position: relative; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s; box-shadow: 0 2px 0 #16202B14;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; line-height: 1.9; letter-spacing: 0.06em; color: #1B3A6B; border-right: 1px solid #16202B1F; padding-right: 12px;">912.7<br />IMAP<br /><span style="color: #16202B80;">2026</span></div>
+          <div>
+            <div style="font-family: 'Libre Caslon Text', serif; font-size: clamp(26px, 3vw, 40px); line-height: 1.1; letter-spacing: -0.02em;">iMAP</div>
+            <div data-zh="UIUC 多模式校园导航" style="font-family: 'Noto Serif SC', 'Libre Caslon Text', serif; font-size: 15px; color: #16202B99; margin-top: 5px;">Multi-mode campus navigation for UIUC</div>
+            <p data-zh="让每个学生 —— 无论行动能力、语言或时间表 —— 都能找到目的地并顺利到达。16 个屏幕，团队项目，我负责 UX。" style="font-size: 13.5px; line-height: 1.75; color: #16202BC7; max-width: 52ch; margin: 16px 0 0;">Designed so every student — regardless of ability, language or schedule — can find what they need and get there without friction. 16 screens, team project.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span style="border: 1px solid #16202B33; padding: 4px 9px;">Accessibility</span><span style="border: 1px solid #16202B33; padding: 4px 9px;">Systems design</span><span style="border: 1px solid #16202B33; padding: 4px 9px;">Campus UX</span>
+            </div>
+          </div>
+          <div style="align-self: stretch; overflow: hidden; background: #16202B0D;">
+            <img src="img/imap-1.png" alt="iMAP screens" style="width: 100%; height: 100%; min-height: 190px; object-fit: cover; object-position: top; display: block;" />
+          </div>
+          <div data-stamp="1" style="position: absolute; right: 342px; bottom: 20px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #B3402F; border: 1.5px solid #B3402F; padding: 6px 11px; transform: rotate(-7deg) scale(0.94); opacity: 0; transition: opacity 0.3s, transform 0.3s;">Open card →</div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="machine" style="display: grid; grid-template-columns: 96px 1fr; border-bottom: 1px solid #16202B26; background: #16202B; color: #EFE9DC;">
+    <div style="border-right: 1px solid #EFE9DC26; padding: 34px 0; display: flex; justify-content: center;">
+      <div data-zh="试读间" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.24em; writing-mode: vertical-rl; text-transform: uppercase; color: #EFE9DC80;">Reading room</div>
+    </div>
+    <div style="padding: 60px 40px 70px;">
+      <div data-zh="活体演示 — 真的在调用模型" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #EFE9DC80; margin-bottom: 20px;">Live demo — this actually calls a model</div>
+      <h2 data-zh="贴一封难读的邮件进来。&lt;span style=&quot;font-style: italic; color: #E8A33D;&quot;&gt;我当场编目。&lt;/span&gt;" style="font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 400; font-size: clamp(28px, 4vw, 56px); line-height: 1.06; letter-spacing: -0.02em; margin: 0 0 16px;">Paste an ugly email. <span style="font-style: italic; color: #E8A33D;">I'll catalogue it.</span></h2>
+      <p data-zh="这就是 MailMind 的核心：从一段啰嗦的邮件里抽出截止日期和待办，编成条目。下面是真的在跑。" style="font-size: 14px; line-height: 1.8; color: #EFE9DCC7; max-width: 56ch; margin: 0 0 30px;">This is MailMind's core idea, running for real: pull the deadlines and the to-dos out of a long email and file them as entries.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
+        <div>
+          <textarea data-input="1" rows="9" placeholder="Hi all — reminder that Project 2 is due Friday 11:59pm on Canvas, office hours moved to Tue 3–4pm in Siebel 2124, and your package is waiting at the front desk until Thursday..." style="width: 100%; background: #1E2B38; color: #EFE9DC; border: 1px solid #EFE9DC33; padding: 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.75; resize: vertical;"></textarea>
+          <div style="display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap;">
+            <button data-run="1" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; background: #E8A33D; color: #16202B; border: none; padding: 13px 24px; cursor: pointer;" style-hover="background: #EFE9DC;">Catalogue it →</button>
+            <button data-sample="1" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; background: none; border: 1px solid #EFE9DC40; color: #EFE9DCBF; padding: 13px 18px; cursor: pointer;" style-hover="border-color: #E8A33D; color: #E8A33D;">use a sample</button>
+          </div>
+        </div>
+        <div data-out="1" style="border: 1px solid #EFE9DC33; min-height: 232px; padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.9; color: #EFE9DC99;">Awaiting input. 等待输入。</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="about" style="display: grid; grid-template-columns: 96px 1fr; border-bottom: 1px solid #16202B26;">
+    <div style="border-right: 1px solid #16202B26; padding: 34px 0; display: flex; justify-content: center;">
+      <div data-zh="关于" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.24em; writing-mode: vertical-rl; text-transform: uppercase; color: #16202B80;">About</div>
+    </div>
+    <div style="padding: 60px 40px 70px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px;">
+      <div>
+        <h2 data-zh="在&lt;span style=&quot;font-style: italic; color: #1B3A6B;&quot;&gt;两套分类系统&lt;/span&gt;里长大" style="font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 400; font-size: clamp(28px, 4vw, 54px); line-height: 1.06; letter-spacing: -0.02em; margin: 0 0 24px;">Raised inside <span style="font-style: italic; color: #1B3A6B;">two filing systems</span></h2>
+        <p data-zh="中英混血，意味着我从小就在做翻译 —— 不只是语言，还有习惯、语气和默认预期。这大概是我为什么会去读信息科学：同一件事换个分类方式，别人就能找到它了。" style="font-family: 'Libre Caslon Text', serif; font-size: 17.5px; line-height: 1.7; color: #16202BD9; max-width: 50ch; margin: 0 0 16px;">Being half Chinese and half American means I have been translating since before I could spell — not just words, but habits, tone and defaults. That is probably why I ended up in Information Science: file the same thing differently and suddenly people can find it.</p>
+        <p data-zh="我的做法很像编目：先弄清有什么、谁在找、他们会用什么词，然后才动界面。缺口大的时候我自己写代码补上。" style="font-size: 14px; line-height: 1.85; color: #16202BC7; max-width: 54ch; margin: 0;">My process is basically cataloguing: work out what exists, who is looking, and what words they would use — then design the interface. When the gap is big enough, I build it myself.</p>
+      </div>
+      <div style="border: 1px solid #16202B33; padding: 22px; align-self: start;">
+        <div data-zh="借阅信息" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #16202B80; margin-bottom: 16px;">Circulation desk</div>
+        <div style="display: flex; flex-direction: column; gap: 13px; font-size: 13.5px;">
+          <a href="mailto:chaserummery@gmail.com">chaserummery@gmail.com</a>
+          <a href="https://linkedin.com/in/chase-rummery" target="_blank">linkedin.com/in/chase-rummery</a>
+          <span data-zh="伊利诺伊州香槟市，UIUC" style="color: #16202B99;">Champaign, IL · UIUC</span>
+          <span data-zh="现可接：2027 夏季实习" style="color: #B3402F;">Open to: Summer 2027 internship</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 22px 28px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #16202B80;">
+    <span>© 2026 Chase Xinru Rummery · 韩馨如</span>
+    <span data-zh="全站手工排版：Libre Caslon 与 Franklin">Set in Libre Caslon &amp; Franklin</span>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;introEnabled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#1B3A6B&quot;,&quot;options&quot;:[&quot;#1B3A6B&quot;,&quot;#14524A&quot;,&quot;#3B2C6B&quot;,&quot;#8C3A2B&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Style&quot;}}">
+class Component extends DCLogic {
+  state = { zh: false };
+
+  renderVals() {
+    return { toggleLang: () => this.swap() };
+  }
+
+  swap() {
+    const zh = !this.state.zh;
+    this.setState({ zh });
+    document.querySelectorAll('[data-zh]').forEach(n => {
+      if (!n.dataset.en) n.dataset.en = n.innerHTML;
+      n.innerHTML = zh ? n.dataset.zh : n.dataset.en;
+      n.style.fontFamily = zh ? "'Noto Serif SC', serif" : '';
+    });
+  }
+
+  componentDidMount() {
+    this.initIntro();
+    this.initCards();
+    this.initDesks();
+    this.initDemo();
+    this.initReveal();
+  }
+
+  initIntro() {
+    const intro = document.querySelector('[data-intro]');
+    if (!intro) return;
+    document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => {
+      intro.style.transform = 'translateY(-100%)';
+      setTimeout(() => { intro.style.display = 'none'; }, 900);
+    }));
+  }
+
+  initCards() {
+    document.querySelectorAll('[data-card]').forEach(card => {
+      const stamp = card.querySelector('[data-stamp]');
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translate(-6px, -6px)';
+        card.style.boxShadow = '10px 10px 0 #1B3A6B';
+        if (stamp) { stamp.style.opacity = '1'; stamp.style.transform = 'rotate(-7deg) scale(1)'; }
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'none';
+        card.style.boxShadow = '0 2px 0 #16202B14';
+        if (stamp) { stamp.style.opacity = '0'; stamp.style.transform = 'rotate(-7deg) scale(0.94)'; }
+      });
+    });
+  }
+
+  initDesks() {
+    const copy = [
+      ['Three shipped-or-nearly-shipped projects, one of them live with real users. I do the research, the interface, and enough of the code that engineers do not have to guess what I meant. Bilingual, so I can run studies and write copy in English or Chinese.', '三个项目，其中一个已上线并有真实用户。研究、界面，加上足够的代码 —— 工程师不用猜我想要什么。中英双语，两种语言都能做用户研究和写文案。'],
+      ['I care most about hierarchy and naming — what shows first, what gets a label, what a thing is called before anyone can search for it. Give me a messy flow and a Figma file and I will come back with a structure you can argue with.', '我最在意层级和命名 —— 什么先出现、什么需要标签、一件东西在被搜索之前该叫什么。给我一个乱的流程和一个 Figma 文件，我会带回一个可以拿来讨论的结构。'],
+      ['I design for models that are sometimes wrong. That means showing the evidence, making corrections cheap, and never letting a confident summary hide the original email. The demo below is the actual pattern, not a mockup.', '我为「有时会出错的模型」做设计：把依据摊开、让纠错成本低、绝不让一段自信的摘要盖住原文。下面那个 demo 就是这个模式本身，不是假的。'],
+      ['I am a student in Champaign who likes making things findable — apps, subleases, campus buildings. If you have something confusing and think it should not be, that is the conversation I want.', '我是香槟一个喜欢「让东西变得好找」的学生 —— 应用、转租房、校园建筑都算。如果你手上有个让人困惑的东西，而你觉得它不该如此，那正是我想聊的。']
+    ];
+    const p = document.querySelector('[data-desk]');
+    document.querySelectorAll('[data-tab]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-tab]').forEach(b => {
+          b.style.background = 'none'; b.style.color = '#16202B'; b.style.borderColor = '#16202B40';
+        });
+        btn.style.background = '#1B3A6B'; btn.style.color = '#EFE9DC'; btn.style.borderColor = '#1B3A6B';
+        const t = copy[+btn.dataset.tab];
+        if (!p) return;
+        p.style.opacity = '0';
+        setTimeout(() => {
+          p.dataset.en = t[0]; p.dataset.zh = t[1];
+          p.innerHTML = this.state.zh ? t[1] : t[0];
+          p.style.fontFamily = this.state.zh ? "'Noto Serif SC', serif" : "'Libre Caslon Text', Georgia, serif";
+          p.style.opacity = '1';
+        }, 180);
+      });
+    });
+    if (p) { p.style.transition = 'opacity 0.25s'; p.dataset.en = copy[0][0]; p.dataset.zh = copy[0][1]; }
+  }
+
+  initDemo() {
+    const ta = document.querySelector('[data-input]');
+    const out = document.querySelector('[data-out]');
+    const run = document.querySelector('[data-run]');
+    const sample = document.querySelector('[data-sample]');
+    if (!ta || !out || !run) return;
+
+    const SAMPLE = "Subject: IS 226 — week 11 logistics\n\nHi everyone, a few things. First, Project 2 deliverables (Figma file + 3-page write-up) are due this Friday at 11:59pm on Canvas — late work loses 10% per day. My office hours this week move to Tuesday 3-4pm in Siebel 2124 instead of Wednesday. Also the TA session on usability testing is Thursday 6pm, optional but recommended before you run your sessions. Finally, whoever left a package addressed to the iSchool front desk, please pick it up before Thursday or it goes back to the mailroom. Thanks!";
+
+    sample?.addEventListener('click', () => { ta.value = SAMPLE; });
+
+    run.addEventListener('click', async () => {
+      const text = ta.value.trim();
+      if (!text) { out.textContent = 'Nothing to catalogue yet. 先贴一段邮件。'; return; }
+      out.innerHTML = '';
+      const loading = document.createElement('div');
+      loading.textContent = 'Reading… 正在读取';
+      loading.style.animation = 'blink 1.1s infinite';
+      out.appendChild(loading);
+      try {
+        const res = await window.claude.complete({
+          max_tokens: 900,
+          system: 'You are the extraction engine behind MailMind, a student email organizer. Return ONLY valid JSON, no prose, no markdown fences.',
+          messages: [{ role: 'user', content: 'Extract from this email. JSON shape: {"summary": "one sentence, max 18 words", "entries": [{"kind": "DEADLINE|APPOINTMENT|PACKAGE|EVENT|NOTICE", "title": "max 8 words", "when": "date/time as written, or empty", "detail": "max 14 words"}]}. Max 6 entries, ordered by urgency.\n\nEMAIL:\n' + text }]
+        });
+        const json = JSON.parse(res.replace(/^[^{]*/, '').replace(/[^}]*$/, ''));
+        this.paint(out, json);
+      } catch (err) {
+        out.textContent = 'The engine choked: ' + (err && err.message ? err.message : err);
+      }
+    });
+  }
+
+  paint(out, json) {
+    const COLORS = { DEADLINE: '#E8543D', APPOINTMENT: '#B08CE8', PACKAGE: '#E8A33D', EVENT: '#6FD3B4', NOTICE: '#7FB2E8' };
+    out.innerHTML = '';
+    const sum = document.createElement('div');
+    sum.textContent = json.summary || '';
+    sum.style.cssText = "font-family:'Libre Caslon Text',Georgia,serif;font-size:16px;line-height:1.6;color:#EFE9DC;border-bottom:1px solid #EFE9DC33;padding-bottom:14px;margin-bottom:14px;";
+    out.appendChild(sum);
+    (json.entries || []).forEach((e, i) => {
+      const row = document.createElement('div');
+      row.style.cssText = 'display:grid;grid-template-columns:96px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid #EFE9DC1F;opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s;';
+      const tag = document.createElement('span');
+      tag.textContent = e.kind || 'NOTICE';
+      tag.style.cssText = 'font-size:9px;letter-spacing:.12em;padding:3px 0;color:' + (COLORS[e.kind] || '#7FB2E8') + ';';
+      const body = document.createElement('div');
+      const t = document.createElement('div');
+      t.textContent = e.title || '';
+      t.style.cssText = 'color:#EFE9DC;font-size:12.5px;';
+      const w = document.createElement('div');
+      w.textContent = [e.when, e.detail].filter(Boolean).join(' · ');
+      w.style.cssText = 'color:#EFE9DC8C;font-size:11px;margin-top:2px;';
+      body.appendChild(t); body.appendChild(w);
+      row.appendChild(tag); row.appendChild(body);
+      out.appendChild(row);
+      setTimeout(() => { row.style.opacity = '1'; row.style.transform = 'none'; }, 90 * i);
+    });
+  }
+
+  initReveal() {
+    const show = n => {
+      n.style.opacity = '';
+      n.style.animation = 'fadeUp 0.75s cubic-bezier(0.2,0.8,0.2,1) both';
+    };
+    const targets = Array.from(document.querySelectorAll('[data-card], [data-tabs], h2'));
+    const pending = new Set();
+    targets.forEach(n => {
+      const r = n.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.94) { show(n); return; }
+      n.style.opacity = '0';
+      pending.add(n);
+    });
+    const sweep = () => {
+      pending.forEach(n => {
+        if (n.getBoundingClientRect().top < window.innerHeight * 0.94) {
+          show(n);
+          pending.delete(n);
+        }
+      });
+      if (!pending.size) window.removeEventListener('scroll', sweep);
+    };
+    window.addEventListener('scroll', sweep, { passive: true });
+    setTimeout(() => { pending.forEach(show); pending.clear(); }, 6000);
+  }
+}
+
+</script>
+</body>
+</html>
