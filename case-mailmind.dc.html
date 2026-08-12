@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #1E1D1B; }
+  * { box-sizing: border-box; }
+  a { color: #C08A2E; text-decoration: none; }
+  a:hover { color: #E8C77A; }
+  ::selection { background: #C08A2E; color: #1E1D1B; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  @media (max-width: 900px) {
+    [data-two] { grid-template-columns: minmax(0, 1fr) !important; }
+    [data-sec] { grid-template-columns: minmax(0, 1fr) !important; }
+  }
+</style>
+</helmet>
+
+<div style="background: #1E1D1B; color: #ECEAE4; font-family: 'Archivo', system-ui, sans-serif; overflow-x: hidden; position: relative;">
+
+  <div style="position: fixed; inset: 0; z-index: 400; pointer-events: none; opacity: 0.15; mix-blend-mode: overlay; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+
+  <div style="position: fixed; top: 18px; left: 22px; right: 22px; z-index: 90; display: flex; justify-content: space-between; pointer-events: none;">
+    <a href="portfolio-home-v4.dc.html#work" data-zh="← 返回项目列表" style="pointer-events: auto; background: #ECEAE4; color: #1E1D1B; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 16px;" style-hover="background: #C08A2E;">← All work</a>
+    <div style="display: flex; gap: 8px; pointer-events: auto;">
+      <a href="case-orangenest.dc.html" data-zh="下一个 →" style="background: #ECEAE4; color: #1E1D1B; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 16px;" style-hover="background: #C08A2E;">Next →</a>
+      <button onClick="{{ toggleLang }}" style="background: #C08A2E; color: #1E1D1B; border: none; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; padding: 11px 14px; cursor: pointer;" style-hover="background: #ECEAE4;">中 / EN</button>
+    </div>
+  </div>
+
+  <div data-wall="1" style="position: relative; background: #ECEAE4; color: #17160F; padding: 108px 0 84px; overflow: hidden;">
+    <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(40px, 10.5vw, 154px); line-height: 0.84; letter-spacing: -0.035em; text-transform: uppercase; text-align: center; white-space: nowrap;">
+      <div>EVERYTHING LANDS</div>
+      <div style="font-style: italic; text-transform: none;">in the same inbox</div>
+      <div>SO NOTHING</div>
+      <div style="font-style: italic; text-transform: none;">stands out at all.</div>
+    </div>
+    </div>
+
+  <svg viewBox="0 0 1440 54" preserveAspectRatio="none" style="display: block; width: 100%; height: 44px; background: #ECEAE4;">
+    <path d="M0,26 L58,14 L142,32 L226,11 L318,30 L414,13 L512,31 L610,17 L716,34 L818,15 L918,30 L1016,12 L1118,28 L1218,14 L1322,31 L1398,16 L1440,26 L1440,54 L0,54 Z" fill="#BFBCB2"></path>
+    <path d="M0,31 L58,19 L142,37 L226,16 L318,35 L414,18 L512,36 L610,22 L716,39 L818,20 L918,35 L1016,17 L1118,33 L1218,19 L1322,36 L1398,21 L1440,31 L1440,54 L0,54 Z" fill="#1E1D1B"></path>
+  </svg>
+
+  <div style="padding: 54px 30px 34px; max-width: 1340px;">
+    <div data-zh="项目 01 · IS 226 交互设计 · 2026 年春" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.24em; text-transform: uppercase; color: #ECEAE480; margin-bottom: 20px;">Project 01 · IS 226 Interaction Design · Spring 2026</div>
+    <h1 style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(50px, 13vw, 200px); line-height: 1.02; letter-spacing: -0.015em; margin: 0; text-transform: uppercase;">MAILMIND</h1>
+    <p data-zh="一个会自己整理的学生收件箱：自动读出截止日期、取件提醒和紧急通知，汇总成一张清单。" style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(19px, 2.3vw, 32px); line-height: 1.42; max-width: 34ch; margin: 26px 0 0; color: #ECEAE4;">A student inbox that sorts itself: deadlines, package pickups and alerts pulled out automatically and gathered into one list.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: #ECEAE42E; margin-top: 40px;">
+      <div style="background: #1E1D1B; padding: 17px 19px;"><div data-zh="类型" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #C08A2E; margin-bottom: 8px;">Type</div><div data-zh="课程项目，两人合作" style="font-size: 13.5px; color: #ECEAE4D9;">Course project, two-person team</div></div>
+      <div style="background: #1E1D1B; padding: 17px 19px;"><div data-zh="周期" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #C08A2E; margin-bottom: 8px;">Timeline</div><div data-zh="2026 年春，10 周" style="font-size: 13.5px; color: #ECEAE4D9;">Spring 2026, 10 weeks</div></div>
+      <div style="background: #1E1D1B; padding: 17px 19px;"><div data-zh="我的角色" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #C08A2E; margin-bottom: 8px;">Role</div><div data-zh="共同设计（与 Cathy）" style="font-size: 13.5px; color: #ECEAE4D9;">Co-designer (with Cathy)</div></div>
+      <div style="background: #C08A2E; padding: 17px 19px;"><div data-zh="工具" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1D1BA6; margin-bottom: 8px;">Tools</div><div data-zh="Figma · React · Cursor" style="font-size: 13.5px; color: #1E1D1B; font-weight: 600;">Figma · React · Cursor</div></div>
+    </div>
+  </div>
+
+  <div data-sec="1" style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; padding: 44px 30px; border-top: 1px solid #ECEAE41F;">
+    <div data-zh="01 — 起点" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #C08A2E;">01 — The problem</div>
+    <div>
+      <h2 data-zh="校园紧急通知和食堂周报，&lt;span style=&quot;color: #C08A2E;&quot;&gt;长得一模一样&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0 0 20px;">A campus emergency and a dining newsletter <span style="color: #C08A2E;">look identical</span></h2>
+      <p data-zh="大学生每天收到几十封邮件：教授、学校各个办公室、学生组织，混着广告、诈骗提醒和各种低优先级通知。普通邮箱把校园紧急警报和食堂周报放在同一个视觉层级上。" style="font-size: 14.5px; line-height: 1.85; color: #ECEAE4C7; max-width: 62ch; margin: 0 0 26px;">College students get dozens of emails a day — professors, university offices, student orgs — mixed with ads, scam alerts and low-priority notices. A standard client gives a campus emergency and a dining hall newsletter exactly the same visual weight.</p>
+
+      <div data-two="1" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div style="background: #ECEAE4; color: #17160F; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #A8791F; margin-bottom: 9px;">01</div><div data-zh="噪音太多" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">Too much noise</div><p data-zh="教授的重要邮件被广告和推广埋掉。学生错过截止日期不是因为忘了，而是因为那封邮件从来没跳出来过。" style="font-size: 13px; line-height: 1.7; color: #17160FBF; margin: 0;">Important emails get buried under promotions. Students miss deadlines not because they forgot, but because the email never stood out.</p></div>
+        <div style="background: #ECEAE4; color: #17160F; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #A8791F; margin-bottom: 9px;">02</div><div data-zh="没有紧急信号" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">No urgency signal</div><p data-zh="没有任何方式能一眼看出「现在必须处理」的是哪一封。" style="font-size: 13px; line-height: 1.7; color: #17160FBF; margin: 0;">There is no way to tell at a glance what actually needs attention right now.</p></div>
+        <div style="background: #ECEAE4; color: #17160F; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #A8791F; margin-bottom: 9px;">03</div><div data-zh="认知负担" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">Cognitive overload</div><p data-zh="教授的长邮件里往往只有一句话是关键：一个截止日期、一个教室号。信息就在那儿，但要自己找。" style="font-size: 13px; line-height: 1.7; color: #17160FBF; margin: 0;">Long emails hide one useful sentence — a due date, a room number. The information is there; finding it isn't.</p></div>
+        <div style="background: #ECEAE4; color: #17160F; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #A8791F; margin-bottom: 9px;">04</div><div data-zh="现成工具不适合学生" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">Existing tools don't fit</div><p data-zh="Superhuman、Fyxer AI 每月 20 美元以上，是给职场人做的，不是给预算有限的学生。" style="font-size: 13px; line-height: 1.7; color: #17160FBF; margin: 0;">Superhuman and Fyxer AI cost over $20/month and are built for working professionals, not students on a budget.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-sec="1" style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; padding: 44px 30px; border-top: 1px solid #ECEAE41F;">
+    <div data-zh="02 — 研究" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #C08A2E;">02 — Research</div>
+    <div>
+      <h2 data-zh="问了同学，&lt;span style=&quot;color: #C08A2E;&quot;&gt;也问了教授&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0 0 20px;">We asked classmates <span style="color: #C08A2E;">and professors</span></h2>
+      <p data-zh="两个核心问题：你最常漏掉哪类邮件？你希望收件箱自动帮你挑出什么信息？教授那边给了另一个视角——他们说，就算提醒发了好几遍，学生还是会漏掉截止日期。" style="font-size: 14.5px; line-height: 1.85; color: #ECEAE4C7; max-width: 62ch; margin: 0 0 24px;">Two questions: which emails do you miss most often, and what would you want your inbox to surface for you? Professors added the other side of it — students miss deadline reminders even when they are emailed several times.</p>
+      <div style="display: flex; flex-direction: column; gap: 0;">
+        <div data-zh="几乎每个学生都提到广告和推广是收件箱最大的噪音来源。" style="border-top: 1px solid #ECEAE424; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5; color: #ECEAE4;">Nearly every student named ads and promotions as the main source of clutter.</div>
+        <div data-zh="漏掉取件通知是反复出现的痛点——包裹在前台放好几天。" style="border-top: 1px solid #ECEAE424; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5; color: #ECEAE4;">Missed package notifications came up again and again — parcels sat at front desks for days.</div>
+        <div data-zh="被要求最多的功能，是从教授邮件里自动抽出截止日期。" style="border-top: 1px solid #ECEAE424; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5; color: #ECEAE4;">The most requested feature was automatic deadline extraction from professor emails.</div>
+        <div data-zh="看过早期原型后，AI 摘要和待办汇总被一致评为最有用。" style="border-top: 1px solid #ECEAE424; border-bottom: 1px solid #ECEAE424; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5; color: #ECEAE4;">After seeing early prototypes, AI summaries and to-do aggregation rated highest.</div>
+      </div>
+    </div>
+  </div>
+
+  <div data-sec="1" style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; padding: 44px 30px; border-top: 1px solid #ECEAE41F;">
+    <div data-zh="03 — 过程" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #C08A2E;">03 — Process</div>
+    <div>
+      <h2 data-zh="三个版本，&lt;span style=&quot;color: #C08A2E;&quot;&gt;各回答一个问题&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0 0 24px;">Three versions, <span style="color: #C08A2E;">one question each</span></h2>
+      <div style="display: flex; flex-direction: column;">
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 20px; border-top: 1px solid #ECEAE424; padding: 20px 0;">
+          <span style="font-family: 'Anton', sans-serif; font-size: 26px; color: #C08A2E;">V1</span>
+          <div><div data-zh="手绘草图 — 到底该有什么？" style="font-weight: 600; font-size: 15.5px; margin-bottom: 6px;">Paper sketches — what should exist?</div><p data-zh="在纸上排功能和信息结构。核心问题是：学生真正需要被挑出来的信息有哪几类？最后定了五类：作业、预约、包裹、活动、通知。" style="font-size: 13.5px; line-height: 1.75; color: #ECEAE4B3; margin: 0; max-width: 62ch;">Mapped the feature set and information architecture on paper. The question: which categories do students actually need surfaced? We landed on five — Assignments, Appointments, Packages, Events, Notifications.</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 20px; border-top: 1px solid #ECEAE424; padding: 20px 0;">
+          <span style="font-family: 'Anton', sans-serif; font-size: 26px; color: #C08A2E;">V2</span>
+          <div><div data-zh="低保真线框 — 每个模块长什么样？" style="font-weight: 600; font-size: 15.5px; margin-bottom: 6px;">Low-fi wireframes — how should each module look?</div><p data-zh="重点是布局：一张卡片一眼该露出多少信息、AI 摘要该放在正文的哪个位置、紧急通知怎么打断正常浏览又不至于让人烦。" style="font-size: 13.5px; line-height: 1.75; color: #ECEAE4B3; margin: 0; max-width: 62ch;">Layout and module structure: how much a card should show at a glance, where the AI summary sits relative to the body, how an emergency alert interrupts without becoming annoying.</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 20px; border-top: 1px solid #ECEAE424; border-bottom: 1px solid #ECEAE424; padding: 20px 0;">
+          <span style="font-family: 'Anton', sans-serif; font-size: 26px; color: #C08A2E;">V3</span>
+          <div><div data-zh="高保真原型 — 真的能用吗？" style="font-weight: 600; font-size: 15.5px; margin-bottom: 6px;">High-fidelity prototype — does it work?</div><p data-zh="6 个完整界面：登录、收件箱、邮件详情、紧急通知详情、工具台、个人页。全部可点击跳转，为了在 Lightning Talk 上现场演示。" style="font-size: 13.5px; line-height: 1.75; color: #ECEAE4B3; margin: 0; max-width: 62ch;">Six screens — login, inbox, email detail, alert detail, tool dashboard, profile — fully clickable for a live demo at the Lightning Talk.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 46px 30px 10px; border-top: 1px solid #ECEAE41F;">
+    <div data-zh="04 — 成品界面" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #C08A2E; margin-bottom: 14px;">04 — The screens</div>
+    <h2 data-zh="六个界面，&lt;span style=&quot;color: #C08A2E;&quot;&gt;完整的原型&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0 0 8px;">Six screens, <span style="color: #C08A2E;">the whole prototype</span></h2>
+    <div data-zh="两指左右滑动或按住拖动；点任意一张放大看细节。" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #ECEAE480; margin-bottom: 22px;">Swipe or drag sideways · click any screen to enlarge</div>
+
+    <div data-rail="1" style="display: flex; gap: 20px; overflow-x: auto; padding: 6px 0 18px; scrollbar-width: none; cursor: grab;">
+        <figure style="flex: 0 0 auto; margin: 0; width: 268px;">
+          <div data-zoom="img/mm/1-login.png" style="border-radius: 30px; overflow: hidden; background: #F4F2EC; box-shadow: 0 18px 40px #00000073; cursor: zoom-in;">
+            <img src="img/mm/1-login.png" alt="Login" style="display: block; width: 100%; height: auto;" />
+          </div>
+          <figcaption style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E; padding: 10px 2px 0;">Login</figcaption>
+        </figure>
+        <figure style="flex: 0 0 auto; margin: 0; width: 268px;">
+          <div data-zoom="img/mm/2-inbox.png" style="border-radius: 30px; overflow: hidden; background: #F4F2EC; box-shadow: 0 18px 40px #00000073; cursor: zoom-in;">
+            <img src="img/mm/2-inbox.png" alt="Inbox" style="display: block; width: 100%; height: auto;" />
+          </div>
+          <figcaption style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E; padding: 10px 2px 0;">Inbox</figcaption>
+        </figure>
+        <figure style="flex: 0 0 auto; margin: 0; width: 268px;">
+          <div data-zoom="img/mm/3-email.png" style="border-radius: 30px; overflow: hidden; background: #F4F2EC; box-shadow: 0 18px 40px #00000073; cursor: zoom-in;">
+            <img src="img/mm/3-email.png" alt="Email + AI summary" style="display: block; width: 100%; height: auto;" />
+          </div>
+          <figcaption style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E; padding: 10px 2px 0;">Email + AI summary</figcaption>
+        </figure>
+        <figure style="flex: 0 0 auto; margin: 0; width: 268px;">
+          <div data-zoom="img/mm/4-alert.png" style="border-radius: 30px; overflow: hidden; background: #F4F2EC; box-shadow: 0 18px 40px #00000073; cursor: zoom-in;">
+            <img src="img/mm/4-alert.png" alt="Emergency alert" style="display: block; width: 100%; height: auto;" />
+          </div>
+          <figcaption style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E; padding: 10px 2px 0;">Emergency alert</figcaption>
+        </figure>
+        <figure style="flex: 0 0 auto; margin: 0; width: 268px;">
+          <div data-zoom="img/mm/5-tool.png" style="border-radius: 30px; overflow: hidden; background: #F4F2EC; box-shadow: 0 18px 40px #00000073; cursor: zoom-in;">
+            <img src="img/mm/5-tool.png" alt="Tool dashboard" style="display: block; width: 100%; height: auto;" />
+          </div>
+          <figcaption style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E; padding: 10px 2px 0;">Tool dashboard</figcaption>
+        </figure>
+        <figure style="flex: 0 0 auto; margin: 0; width: 268px;">
+          <div data-zoom="img/mm/6-profile.png" style="border-radius: 30px; overflow: hidden; background: #F4F2EC; box-shadow: 0 18px 40px #00000073; cursor: zoom-in;">
+            <img src="img/mm/6-profile.png" alt="Profile" style="display: block; width: 100%; height: auto;" />
+          </div>
+          <figcaption style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E; padding: 10px 2px 0;">Profile</figcaption>
+        </figure>
+    </div>
+
+    <div style="margin-top: 34px; background: #F4F2EC; padding: 22px 22px 16px;">
+      <div data-zoom="img/mailmind-3.png" style="cursor: zoom-in; background: #E4E0D6;">
+        <img src="img/mailmind-3.png" alt="All six MailMind screens" style="display: block; width: 100%; height: auto;" />
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 12px 2px 0; color: #17160F;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: #17160F80;">FIGMA · CLICKABLE PROTOTYPE</span>
+        <span style="font-family: 'Caveat', cursive; font-size: 22px;">all six screens</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 38px 30px 10px;">
+    <div data-field="1" style="position: relative; height: 470px;">
+      <div data-drag="1" style="position: absolute; left: 4%; top: 10px; width: 400px; background: #F4F2EC; padding: 13px 13px 8px; box-shadow: 0 20px 44px #00000073; transform: rotate(-2.6deg); cursor: grab;">
+        <div data-zoom="img/mailmind-1.png" style="cursor: zoom-in;"><img src="img/mailmind-1.png" alt="Pain points mapped to features" style="width: 100%; height: auto; display: block; background: #DAD6CC;" /></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 2px 2px; color: #17160F;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #17160F80;">237 R311</span><span style="font-family: 'Caveat', cursive; font-size: 20px;">pain points → features</span></div>
+      </div>
+      <div data-drag="1" style="position: absolute; left: 46%; top: 96px; width: 430px; background: #F4F2EC; padding: 13px 13px 8px; box-shadow: 0 20px 44px #00000073; transform: rotate(1.8deg); cursor: grab;">
+        <div data-zoom="img/mailmind-2.png" style="cursor: zoom-in;"><img src="img/mailmind-2.png" alt="AI summarized dashboard" style="width: 100%; height: auto; display: block; background: #DAD6CC;" /></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 2px 2px; color: #17160F;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #17160F80;">237 K5</span><span style="font-family: 'Caveat', cursive; font-size: 20px;">the tool dashboard</span></div>
+      </div>
+      <div data-dragme="1" style="position: absolute; left: 30%; top: 400px; background: #C08A2E; color: #17160F; font-weight: 600; font-size: 13px; padding: 9px 18px; border-radius: 999px; pointer-events: none; z-index: 40;">Drag me · click to zoom</div>
+    </div>
+  </div>
+
+  <div data-sec="1" style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; padding: 44px 30px; border-top: 1px solid #ECEAE41F;">
+    <div data-zh="05 — 关键决定" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #C08A2E;">05 — Decisions</div>
+    <div>
+      <h2 data-zh="四个决定，&lt;span style=&quot;color: #C08A2E;&quot;&gt;撑起整个产品&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0 0 24px;">Four decisions <span style="color: #C08A2E;">carry the product</span></h2>
+      <div data-two="1" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div style="border: 1px solid #ECEAE42E; padding: 20px 22px;"><div data-zh="颜色即分类" style="font-weight: 600; font-size: 15px; margin-bottom: 7px;">Color-coded labels</div><p data-zh="作业青色、包裹橙色、通知蓝色、预约紫色。不用逐条读标题就能扫。" style="font-size: 13px; line-height: 1.75; color: #ECEAE4B3; margin: 0;">Teal for assignments, orange for packages, blue for notifications, purple for appointments — scannable without reading a single subject line.</p></div>
+        <div style="border: 1px solid #ECEAE42E; padding: 20px 22px;"><div data-zh="常驻紧急横幅" style="font-weight: 600; font-size: 15px; margin-bottom: 7px;">A banner you can't scroll past</div><p data-zh="紧急通知固定在收件箱上方。视觉重量最难调——要够紧急能打断，又不能一出现就被人立刻关掉。这是整个项目里改得最多的一个组件。" style="font-size: 13px; line-height: 1.75; color: #ECEAE4B3; margin: 0;">Emergency alerts pin above the inbox. Getting the visual weight right — urgent enough to interrupt, not so alarming people dismiss it — took more iteration than any other component.</p></div>
+        <div style="border: 1px solid #ECEAE42E; padding: 20px 22px;"><div data-zh="AI 摘要卡" style="font-weight: 600; font-size: 15px; margin-bottom: 7px;">AI summary card</div><p data-zh="放在每封邮件正文最上面，只放从正文里抽出来的「要做什么」。先看到要做的事，再决定要不要读全文。" style="font-size: 13px; line-height: 1.75; color: #ECEAE4B3; margin: 0;">Sits at the top of each email with just the actionable part extracted from the body. You see what to do before deciding to read.</p></div>
+        <div style="border: 1px solid #ECEAE42E; padding: 20px 22px;"><div data-zh="工具台当中枢" style="font-weight: 600; font-size: 15px; margin-bottom: 7px;">The tool screen as home base</div><p data-zh="把所有账号里的截止日期、预约、包裹和活动汇总到一个视图。用户测试里得分最高的功能。" style="font-size: 13px; line-height: 1.75; color: #ECEAE4B3; margin: 0;">Aggregates every deadline, appointment, package and event across linked accounts in one view. The feature that tested highest.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #ECEAE4; color: #17160F; padding: 54px 30px 58px; margin-top: 44px;">
+    <div data-zh="06 — 结果" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #A8791F; margin-bottom: 16px;">06 — Outcome</div>
+    <h2 data-zh="2026 年 5 月，&lt;span style=&quot;color: #A8791F;&quot;&gt;iSchool Lightning Talk&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(30px, 5.4vw, 78px); line-height: 1.02; text-transform: uppercase; margin: 0 0 20px;">May 2026, <span style="color: #A8791F;">iSchool Lightning Talk</span></h2>
+    <p data-zh="面向学生、老师和设计同行做了演示。现场反馈把 AI 摘要认定为价值最高的功能，尤其是对付教授和学校行政那种长邮件。我们还用 Cursor 和 React 做了一个部分实现的版本：前端能跑，但 Google OAuth 的验证没能在课程周期内走完——这件事本身成了一课。" style="font-size: 15px; line-height: 1.85; color: #17160FC7; max-width: 66ch; margin: 0 0 34px;">Presented to students, faculty and design peers. Feedback landed on the AI summary as the highest-value piece, especially for long emails from professors and administration. We also built a partial implementation with Cursor and React — the front end worked, but Google OAuth verification never cleared inside the course timeline, which became its own lesson.</p>
+
+    <div data-zh="我会怎么重做" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #A8791F; margin-bottom: 14px;">What I'd do differently</div>
+    <div style="display: flex; flex-direction: column; max-width: 78ch;">
+      <div data-zh="先把 Google OAuth 接通。没有真实邮件，分类逻辑一直是在对着假设做设计，而不是对着真实收件箱。" style="border-top: 1px solid #17160F26; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5;">Get Google OAuth working first. Without real email, the categorization logic was designed against a hypothesis, not a real inbox.</div>
+      <div data-zh="做结构化的可用性测试，而不是聊天式访谈。我们知道大家喜欢这个概念，但不知道他们能不能在没人指导的情况下用明白工具台。" style="border-top: 1px solid #17160F26; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5;">Run structured usability tests instead of conversational interviews. We knew people liked the concept; we didn't know if they could navigate the tool screen unguided.</div>
+      <div data-zh="同时做桌面端。大部分学生其实在电脑上看邮件，移动优先方便了排期，但也把功能形状带偏了。" style="border-top: 1px solid #17160F26; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5;">Design the desktop version in parallel. Most students read email on a laptop; mobile-first was good for scope but shaped features in ways that don't translate.</div>
+      <div data-zh="紧急通知这个交互教了我最多：界面里的层级不只是大小，还包括时机、能不能被打断、以及在你能关掉它之前它让你先做了什么。" style="border-top: 1px solid #17160F26; border-bottom: 1px solid #17160F26; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5;">The alert interaction taught me the most: hierarchy is not only size — it is timing, interruptibility, and what you make someone do before they can dismiss something.</div>
+    </div>
+  </div>
+
+  <a href="case-orangenest.dc.html" style="display: flex; justify-content: space-between; align-items: center; padding: 42px 30px; border-top: 1px solid #ECEAE41F; color: #ECEAE4;" style-hover="background: #26241F;">
+    <div>
+      <div data-zh="下一个项目" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #C08A2E; margin-bottom: 10px;">Next project</div>
+      <div style="font-family: 'Anton', sans-serif; font-size: clamp(30px, 5vw, 68px); line-height: 1.02; text-transform: uppercase;">OrangeNest 橙舍</div>
+    </div>
+    <span style="font-size: 34px; color: #C08A2E;">→</span>
+  </a>
+
+  <div style="padding: 20px 30px 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #ECEAE466;">
+    <span>© 2026 Chase Xinru Rummery · 项心如</span>
+    <a href="mailto:chaserummery@gmail.com">chaserummery@gmail.com</a>
+  </div>
+
+  <div data-lightbox="1" style="position: fixed; inset: 0; z-index: 500; display: none; align-items: center; justify-content: center; background: #0C0B09F2; padding: 40px; cursor: zoom-out;">
+    <img alt="" style="max-width: 94vw; max-height: 88vh; width: auto; height: auto; box-shadow: 0 40px 90px #000000A6;" />
+    <div style="position: absolute; top: 22px; right: 26px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #ECEAE499;">Click anywhere to close</div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C08A2E&quot;,&quot;options&quot;:[&quot;#C08A2E&quot;,&quot;#D93A1E&quot;,&quot;#B9A46B&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Style&quot;}}">
+class Component extends DCLogic {
+  state = { zh: false };
+
+  renderVals() { return { toggleLang: () => this.swap() }; }
+
+  swap() {
+    const zh = !this.state.zh;
+    this.setState({ zh });
+    document.querySelectorAll('[data-zh]').forEach(n => {
+      if (!n.dataset.en) n.dataset.en = n.innerHTML;
+      n.innerHTML = zh ? n.dataset.zh : n.dataset.en;
+      n.style.fontFamily = zh ? "'Noto Sans SC', sans-serif" : '';
+    });
+  }
+
+  componentDidMount() {
+    this.initDrag();
+    this.initReveal();
+    this.initRail();
+    this.initLightbox();
+  }
+
+  initRail() {
+    document.querySelectorAll('[data-rail]').forEach(rail => {
+      rail.addEventListener('wheel', e => {
+        const horizontal = e.shiftKey || Math.abs(e.deltaX) > Math.abs(e.deltaY) * 1.2;
+        if (!horizontal) return;
+        e.preventDefault();
+        rail.scrollLeft += (e.deltaX || e.deltaY);
+      }, { passive: false });
+      let down = false, sx = 0, sl = 0;
+      rail.addEventListener('mousedown', e => { down = true; sx = e.clientX; sl = rail.scrollLeft; });
+      window.addEventListener('mousemove', e => {
+        if (!down) return;
+        e.preventDefault();
+        rail.scrollLeft = sl - (e.clientX - sx);
+      });
+      window.addEventListener('mouseup', () => { down = false; });
+    });
+  }
+
+  initLightbox() {
+    const box = document.querySelector('[data-lightbox]');
+    if (!box) return;
+    const img = box.querySelector('img');
+    const close = () => { box.style.display = 'none'; };
+    box.addEventListener('click', close);
+    window.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    document.querySelectorAll('[data-zoom]').forEach(el => {
+      let moved = false, sx = 0;
+      el.addEventListener('mousedown', e => { moved = false; sx = e.clientX; });
+      el.addEventListener('mousemove', e => { if (Math.abs(e.clientX - sx) > 6) moved = true; });
+      el.addEventListener('click', () => {
+        if (moved) return;
+        img.src = el.dataset.zoom;
+        box.style.display = 'flex';
+      });
+    });
+  }
+
+  initWall() {
+    const wall = document.querySelector('[data-wall]');
+    const rev = document.querySelector('[data-wallreveal]');
+    if (!wall || !rev) return;
+    let tx = 0, ty = 0, cx = 0, cy = 0, r = 0, tr = 0;
+    wall.addEventListener('mousemove', e => {
+      const b = wall.getBoundingClientRect();
+      tx = e.clientX - b.left; ty = e.clientY - b.top; tr = 150;
+      if (!r) { cx = tx; cy = ty; }
+    });
+    wall.addEventListener('mouseleave', () => { tr = 0; });
+    const loop = () => {
+      cx += (tx - cx) * 0.16; cy += (ty - cy) * 0.16; r += (tr - r) * 0.11;
+      rev.style.clipPath = 'circle(' + r.toFixed(1) + 'px at ' + cx.toFixed(1) + 'px ' + cy.toFixed(1) + 'px)';
+      this.raf = requestAnimationFrame(loop);
+    };
+    loop();
+  }
+
+  initDrag() {
+    const hint = document.querySelector('[data-dragme]');
+    let z = 10;
+    document.querySelectorAll('[data-drag]').forEach(card => {
+      const base = card.style.transform;
+      let dx = 0, dy = 0, ox = 0, oy = 0, sx = 0, sy = 0;
+      card.addEventListener('mousedown', e => {
+        e.preventDefault();
+        if (hint) hint.style.display = 'none';
+        sx = e.clientX; sy = e.clientY; ox = dx; oy = dy;
+        card.style.cursor = 'grabbing';
+        card.style.zIndex = ++z + 20;
+        const move = ev => {
+          dx = ox + ev.clientX - sx; dy = oy + ev.clientY - sy;
+          card.style.transform = 'translate(' + dx + 'px,' + dy + 'px) ' + base;
+        };
+        const up = () => {
+          card.style.cursor = 'grab';
+          window.removeEventListener('mousemove', move);
+          window.removeEventListener('mouseup', up);
+        };
+        window.addEventListener('mousemove', move);
+        window.addEventListener('mouseup', up);
+      });
+    });
+  }
+
+  initReveal() {
+    const show = n => { n.style.opacity = ''; n.style.animation = 'fadeUp 0.8s cubic-bezier(0.2,0.8,0.2,1) both'; };
+    const pending = new Set();
+    Array.from(document.querySelectorAll('h2, [data-sec] > div:last-child > div')).forEach(n => {
+      if (n.getBoundingClientRect().top < window.innerHeight * 0.94) { show(n); return; }
+      n.style.opacity = '0';
+      pending.add(n);
+    });
+    const sweep = () => {
+      pending.forEach(n => {
+        if (n.getBoundingClientRect().top < window.innerHeight * 0.94) { show(n); pending.delete(n); }
+      });
+      if (!pending.size) window.removeEventListener('scroll', sweep);
+    };
+    window.addEventListener('scroll', sweep, { passive: true });
+    setTimeout(() => { pending.forEach(show); pending.clear(); }, 6000);
+  }
+}
+
+</script>
+</body>
+</html>

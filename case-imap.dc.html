@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #14171A; }
+  * { box-sizing: border-box; }
+  a { color: #C08A2E; text-decoration: none; }
+  a:hover { color: #E8C77A; }
+  ::selection { background: #C08A2E; color: #14171A; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  @keyframes rainfall { from { transform: translateY(-100%); } to { transform: translateY(100%); } }
+  @media (max-width: 900px) {
+    [data-two] { grid-template-columns: minmax(0, 1fr) !important; }
+    [data-sec] { grid-template-columns: minmax(0, 1fr) !important; }
+    [data-three] { grid-template-columns: minmax(0, 1fr) !important; }
+  }
+</style>
+</helmet>
+
+<div style="background: #14171A; color: #E9E6E0; font-family: 'Archivo', system-ui, sans-serif; overflow-x: hidden; position: relative;">
+
+  <div style="position: fixed; inset: 0; z-index: 400; pointer-events: none; opacity: 0.15; mix-blend-mode: overlay; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+
+  <div style="position: fixed; top: 18px; left: 22px; right: 22px; z-index: 90; display: flex; justify-content: space-between; pointer-events: none;">
+    <a href="portfolio-home-v4.dc.html#work" data-zh="← 返回项目列表" style="pointer-events: auto; background: #E9E6E0; color: #14171A; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 16px;" style-hover="background: #C08A2E;">← All work</a>
+    <div style="display: flex; gap: 8px; pointer-events: auto;">
+      <a href="case-mailmind.dc.html" data-zh="下一个 →" style="background: #E9E6E0; color: #14171A; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 16px;" style-hover="background: #C08A2E;">Next →</a>
+      <button onClick="{{ toggleLang }}" style="background: #C08A2E; color: #14171A; border: none; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; padding: 11px 14px; cursor: pointer;" style-hover="background: #E9E6E0;">中 / EN</button>
+    </div>
+  </div>
+
+  <div style="position: relative; min-height: 88vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 30px 44px; overflow: hidden; background: radial-gradient(90% 70% at 26% 22%, #22303A 0%, #14171A 66%, #0F1215 100%);">
+    <div style="position: absolute; inset: 0; opacity: 0.5; background-image: linear-gradient(#E9E6E00F 1px, transparent 1px), linear-gradient(90deg, #E9E6E00F 1px, transparent 1px); background-size: 74px 74px;"></div>
+    <div style="position: absolute; inset: -20% 0; opacity: 0.2; background-image: repeating-linear-gradient(104deg, #9DC6E0 0 1px, transparent 1px 46px); animation: rainfall 2.6s linear infinite;"></div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, #14171ACC 0%, #14171A2E 40%, #14171AF2 100%);"></div>
+
+    <div style="position: relative;">
+      <div data-zh="项目 03 · INFO 333 用户体验设计 · 2026" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.26em; text-transform: uppercase; color: #E9E6E0A6; margin-bottom: 18px;">Project 03 · INFO 333 UX Design · 2026</div>
+      <h1 style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(52px, 14vw, 214px); line-height: 1.02; letter-spacing: -0.015em; margin: 0; text-transform: uppercase;">iMAP</h1>
+      <p data-zh="UIUC 的多模式校园导航：无障碍路线、教室与图书馆实时占用、餐饮、运动场馆，以及一个下雨自动改走室内的模式。" style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(19px, 2.2vw, 31px); line-height: 1.42; max-width: 36ch; margin: 24px 0 0; color: #E9E6E0;">Multi-mode campus navigation for UIUC: accessible routes, live space occupancy, dining, sports — and a weather mode that reroutes you indoors when it rains.</p>
+      <div data-zh="下雨天，这个模式是整个项目里最被记住的一个。" style="font-family: 'Caveat', cursive; font-size: 21px; color: #9DC6E0; margin-top: 16px;">On a rainy day, that mode is the part everyone remembers.</div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: #E9E6E02E; margin: 0 30px;">
+    <div style="background: #14171A; padding: 17px 19px;"><div data-zh="类型" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #C08A2E; margin-bottom: 8px;">Type</div><div data-zh="课程项目，团队合作" style="font-size: 13.5px; color: #E9E6E0D9;">Course project, team of four</div></div>
+    <div style="background: #14171A; padding: 17px 19px;"><div data-zh="周期" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #C08A2E; margin-bottom: 8px;">Timeline</div><div data-zh="2026 年春" style="font-size: 13.5px; color: #E9E6E0D9;">Spring 2026</div></div>
+    <div style="background: #14171A; padding: 17px 19px;"><div data-zh="我的角色" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #C08A2E; margin-bottom: 8px;">Role</div><div data-zh="UX 设计：用户画像、线框、可用性测试" style="font-size: 13.5px; color: #E9E6E0D9;">UX designer — personas, wireframes, usability testing</div></div>
+    <div style="background: #C08A2E; padding: 17px 19px;"><div data-zh="产出" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #14171AA6; margin-bottom: 8px;">Output</div><div data-zh="Figma · 18 个界面 · 6 种模式" style="font-size: 13.5px; color: #14171A; font-weight: 600;">Figma · 18 screens · 6 modes</div></div>
+  </div>
+
+  <div data-sec="1" style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; padding: 52px 30px 44px;">
+    <div data-zh="01 — 问题" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #C08A2E;">01 — The problem</div>
+    <div>
+      <h2 data-zh="校园工具是给&lt;span style=&quot;color: #C08A2E;&quot;&gt;“平均的那个人”&lt;/span&gt;做的" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0 0 20px;">Campus tools are built for <span style="color: #C08A2E;">the average person</span></h2>
+      <p data-zh="但「平均的那个人」并不存在。UIUC 有行动不便的学生、用第二语言导航的国际学生、想找一片没被占满的球场的人、在两节课之间找车位的通勤生。现有的地图只服务大多数，剩下的人得自己把信息从各个地方拼起来。" style="font-size: 14.5px; line-height: 1.85; color: #E9E6E0C7; max-width: 62ch; margin: 0 0 26px;">But the average person does not exist. UIUC has students with mobility needs, international students navigating in a second language, athletes looking for a court that is not already packed, commuters hunting parking between classes. Existing maps serve the majority and leave everyone else to piece information together.</p>
+
+      <div data-three="1" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+        <div style="background: #E9E6E0; color: #14171A; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8A6018; margin-bottom: 8px;">01</div><div data-zh="走过去才发现满了" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">You walk over and it's full</div><p data-zh="下课后穿过半个校园去图书馆或体育馆，到了发现座位全满、球场被占。出发前没有任何办法知道。" style="font-size: 13px; line-height: 1.7; color: #14171ABF; margin: 0;">You cross campus to the library or the gym after class and find every seat taken. There is no way to check before leaving.</p></div>
+        <div style="background: #E9E6E0; color: #14171A; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8A6018; margin-bottom: 8px;">02</div><div data-zh="无障碍信息藏得很深" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">Accessibility info is buried</div><p data-zh="有行动需求的学生得自己一个个确认电梯位置和无障碍入口——这类信息应该是默认项，不是特例。" style="font-size: 13px; line-height: 1.7; color: #14171ABF; margin: 0;">Students with mobility needs verify elevators and accessible entrances manually — information that should be the default, not a special case.</p></div>
+        <div style="background: #E9E6E0; color: #14171A; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8A6018; margin-bottom: 8px;">03</div><div data-zh="用第二语言找路" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">Navigating in a second language</div><p data-zh="校园工具几乎不提供有意义的语言支持。对英语还在建立中的学生来说，每一步都多一层摩擦。" style="font-size: 13px; line-height: 1.7; color: #14171ABF; margin: 0;">Campus tools rarely offer real language support. For students still building fluency, that adds friction to every interaction.</p></div>
+      </div>
+
+      <div style="background: #C08A2E; color: #14171A; padding: 24px 26px; margin-top: 18px;">
+        <div data-zh="核心价值" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #14171AA6; margin-bottom: 10px;">Core value</div>
+        <p data-zh="包容——一张校园地图，应该对每个人都同样好用，不管能力、语言、时间表还是生活方式。" style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(20px, 2.4vw, 32px); line-height: 1.35; margin: 0;">Inclusivity — a campus map should work equally well for every person, regardless of ability, language, schedule or lifestyle.</p>
+      </div>
+    </div>
+  </div>
+
+  <div data-sec="1" style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; padding: 8px 30px 44px;">
+    <div data-zh="02 — 六种人，六种模式" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #C08A2E;">02 — Six people, six modes</div>
+    <div>
+      <h2 data-zh="切换模式，&lt;span style=&quot;color: #C08A2E;&quot;&gt;整张地图就变了&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0 0 20px;">Switch the mode, <span style="color: #C08A2E;">the map changes</span></h2>
+      <p data-zh="我们没有围绕一个虚构用户去设计，而是围绕六种真实处境——每一种对应 App 里的一个模式。核心交互就是切模式：地图只留下当下相关的信息。同一个校园，取决于你现在需要它做什么。" style="font-size: 14.5px; line-height: 1.85; color: #E9E6E0C7; max-width: 62ch; margin: 0 0 24px;">Instead of designing for one persona, we built around six real contexts — each mapping to a mode. Mode-switching is the core interaction: the map keeps only what is relevant right now. The same campus, depending on what you need from it.</p>
+
+      <div data-three="1" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #E9E6E02E;">
+        <div style="background: #14171A; padding: 20px 22px;"><div data-zh="无障碍" style="font-family: 'Anton', sans-serif; font-size: 21px; text-transform: uppercase; color: #C08A2E; margin-bottom: 7px;">Accessibility</div><p data-zh="电梯位置、无障碍入口、坡度友好的路线。当主功能做，不当补充。" style="font-size: 13px; line-height: 1.7; color: #E9E6E0B3; margin: 0;">Elevators, accessible entrances, slope-friendly routes — primary, not secondary.</p></div>
+        <div style="background: #14171A; padding: 20px 22px;"><div data-zh="自习空间" style="font-family: 'Anton', sans-serif; font-size: 21px; text-transform: uppercase; color: #C08A2E; margin-bottom: 7px;">Study spaces</div><p data-zh="图书馆和安静区域的实时占用，走过去之前就知道有没有位子。" style="font-size: 13px; line-height: 1.7; color: #E9E6E0B3; margin: 0;">Libraries and quiet areas with live occupancy, so you know before you walk over.</p></div>
+        <div style="background: #14171A; padding: 20px 22px;"><div data-zh="运动" style="font-family: 'Anton', sans-serif; font-size: 21px; text-transform: uppercase; color: #C08A2E; margin-bottom: 7px;">Exercise</div><p data-zh="体育馆、球场、健身房的实时忙碌程度。" style="font-size: 13px; line-height: 1.7; color: #E9E6E0B3; margin: 0;">Gyms, courts and fitness spaces with live busyness data.</p></div>
+        <div style="background: #14171A; padding: 20px 22px;"><div data-zh="餐饮" style="font-family: 'Anton', sans-serif; font-size: 21px; text-transform: uppercase; color: #C08A2E; margin-bottom: 7px;">Food</div><p data-zh="食堂和咖啡馆的营业时间、菜式类型、饮食限制筛选。" style="font-size: 13px; line-height: 1.7; color: #E9E6E0B3; margin: 0;">Dining halls and cafés with hours, menu types and dietary filters.</p></div>
+        <div style="background: #14171A; padding: 20px 22px;"><div data-zh="通勤与停车" style="font-family: 'Anton', sans-serif; font-size: 21px; text-transform: uppercase; color: #C08A2E; margin-bottom: 7px;">Mobility</div><p data-zh="自行车架、滑板车区域、停车位，实时可用情况。" style="font-size: 13px; line-height: 1.7; color: #E9E6E0B3; margin: 0;">Bike racks, scooter areas and car parking with real-time availability.</p></div>
+        <div style="background: #14171A; padding: 20px 22px;"><div data-zh="艺术与活动" style="font-family: 'Anton', sans-serif; font-size: 21px; text-transform: uppercase; color: #C08A2E; margin-bottom: 7px;">Arts</div><p data-zh="演出、展览、校园活动直接出现在地图里，而不是藏在另一个日历里。" style="font-size: 13px; line-height: 1.7; color: #E9E6E0B3; margin: 0;">Performances, exhibitions and events surfaced in the map, not buried in a separate calendar.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-sec="1" style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; padding: 10px 30px 30px;">
+    <div data-zh="03 — 主界面" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #C08A2E;">03 — Main interface</div>
+    <div data-two="1" style="display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 34px; align-items: start;">
+      <div data-zoom="img/ip/06-home-map.png" style="border-radius: 34px; overflow: hidden; background: #F2F0EA; box-shadow: 0 26px 60px #00000099, 0 0 0 1px #E9E6E033; cursor: zoom-in;">
+        <img src="img/ip/06-home-map.png" alt="iMAP home map" style="display: block; width: 100%; height: auto;" />
+      </div>
+      <div>
+        <h2 data-zh="一张地图，&lt;span style=&quot;color: #C08A2E;&quot;&gt;六种模式都在手边&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 60px); line-height: 1.02; text-transform: uppercase; margin: 0 0 18px;">One map, <span style="color: #C08A2E;">six modes within reach</span></h2>
+        <p data-zh="主界面是整个产品的重心：地图占满屏幕，模式切换条固定在下方，搜索和 Mappy 在顶部随时能叫出来。所有的实时信息——座位、球场、餐厅、天气——都以图钉的形式直接叠在地图上，不用进二级页面。" style="font-size: 14.5px; line-height: 1.85; color: #E9E6E0C7; max-width: 58ch; margin: 0 0 20px;">The home map carries the product: the map fills the screen, the mode bar stays pinned at the bottom, and search plus Mappy are always one tap away at the top. Live information — seats, courts, dining, weather — sits directly on the map as pins rather than behind a second page.</p>
+        <div style="font-family: 'Caveat', cursive; font-size: 21px; color: #9DC6E0;">Point at any screen below and click it to read the detail.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 14px 0 26px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; padding: 0 30px 18px;">
+      <h2 data-zh="十八个界面，&lt;span style=&quot;color: #C08A2E;&quot;&gt;完整的流程&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(26px, 4.2vw, 56px); line-height: 1.02; text-transform: uppercase; margin: 0;">Eighteen screens, <span style="color: #C08A2E;">the whole flow</span></h2>
+      <div data-zh="两指左右滑动或按住拖动；点开看大图。" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #E9E6E080;">Swipe or drag sideways · click to enlarge</div>
+    </div>
+    <div data-rail="1" style="display: flex; gap: 22px; overflow-x: auto; padding: 6px 30px 24px; scrollbar-width: none; cursor: grab;">
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/01-splash.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/01-splash.png" alt="Splash" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">01</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Splash</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/02-year.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/02-year.png" alt="Year select" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">02</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Year select</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/03-language.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/03-language.png" alt="Language" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">03</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Language</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/04-accessibility.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/04-accessibility.png" alt="Accessibility setup" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">04</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Accessibility setup</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/05-interests.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/05-interests.png" alt="Interests" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">05</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Interests</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/06-home-map.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/06-home-map.png" alt="Home map" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">06</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Home map</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/07-location.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/07-location.png" alt="Location detail" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">07</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Location detail</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/08-chatbot.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/08-chatbot.png" alt="Mappy, the AI assistant" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">08</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Mappy, the AI assistant</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/09-schedule.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/09-schedule.png" alt="Schedule upload" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">09</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Schedule upload</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/10-day-route.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/10-day-route.png" alt="Day route" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">10</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Day route</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/11-study.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/11-study.png" alt="Study spaces" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">11</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Study spaces</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/12-weather.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/12-weather.png" alt="Weather mode" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">12</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Weather mode</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/13-weather-card.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/13-weather-card.png" alt="Weather warning" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">13</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Weather warning</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/14-exercise.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/14-exercise.png" alt="Exercise mode" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">14</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Exercise mode</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/15-dining.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/15-dining.png" alt="Dining mode" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">15</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Dining mode</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/16-settings.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/16-settings.png" alt="Settings" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">16</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Settings</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/17-chinese.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/17-chinese.png" alt="中文 interface" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">17</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">中文 interface</span></figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: 262px;">
+        <div data-zoom="img/ip/18-arrived.png" style="border-radius: 30px; overflow: hidden; background: #F2F0EA; box-shadow: 0 18px 40px #00000080, 0 0 0 1px #E9E6E029; cursor: zoom-in;">
+          <img src="img/ip/18-arrived.png" alt="Arrived" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline; padding: 10px 4px 0;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E9E6E066;">18</span><span style="font-family: 'Caveat', cursive; font-size: 19px; color: #C08A2E;">Arrived</span></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div data-sec="1" style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; padding: 30px 30px 44px;">
+    <div data-zh="04 — 设计决定" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #C08A2E;">04 — Decisions</div>
+    <div>
+      <h2 data-zh="四个决定，&lt;span style=&quot;color: #C08A2E;&quot;&gt;定了最终形态&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0 0 24px;">Four decisions <span style="color: #C08A2E;">shaped the final design</span></h2>
+      <div style="display: flex; flex-direction: column;">
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 20px; border-top: 1px solid #E9E6E024; padding: 20px 0;">
+          <span style="font-family: 'Anton', sans-serif; font-size: 24px; color: #C08A2E;">01</span>
+          <div><div data-zh="默认深色" style="font-weight: 600; font-size: 15.5px; margin-bottom: 6px;">Dark mode by default</div><p data-zh="这个 App 是在户外用的：白天直射阳光，晚上光线很暗。深底配高对比的橙色，在两种情况下都比亮色主题好读。" style="font-size: 13.5px; line-height: 1.75; color: #E9E6E0B3; margin: 0; max-width: 62ch;">The app is used outdoors — direct sun, or low light in the evening. A dark background with high-contrast orange performs better in both than a light theme.</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 20px; border-top: 1px solid #E9E6E024; padding: 20px 0;">
+          <span style="font-family: 'Anton', sans-serif; font-size: 24px; color: #C08A2E;">02</span>
+          <div><div data-zh="用自然语言问，而不是先学会筛选器" style="font-weight: 600; font-size: 15.5px; margin-bottom: 6px;">Ask in plain language, don't learn the filters</div><p data-zh="与其要求用户先知道该选哪个模式、哪些筛选条件，AI 助手 Masey 让人直接说：「下节课附近哪里能自习？」再由它把意图翻译成模式 + 位置。" style="font-size: 13.5px; line-height: 1.75; color: #E9E6E0B3; margin: 0; max-width: 62ch;">Rather than requiring people to know the right mode and filters up front, the AI assistant (Masey) lets them ask "where can I study near my next class?" and translates intent into mode plus location.</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 20px; border-top: 1px solid #E9E6E024; padding: 20px 0;">
+          <span style="font-family: 'Anton', sans-serif; font-size: 24px; color: #C08A2E;">03</span>
+          <div><div data-zh="从课表生成一天的路线" style="font-weight: 600; font-size: 15.5px; margin-bottom: 6px;">A day route from your timetable</div><p data-zh="上传课表，App 规划一整天：在课与课之间推荐自习点和吃饭的地方，把空档变成有安排的时间。" style="font-size: 13.5px; line-height: 1.75; color: #E9E6E0B3; margin: 0; max-width: 62ch;">Upload your class schedule and the app plans the day — study spots and food between classes, so dead time becomes intentional time.</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 20px; border-top: 1px solid #E9E6E024; border-bottom: 1px solid #E9E6E024; padding: 20px 0;">
+          <span style="font-family: 'Anton', sans-serif; font-size: 24px; color: #C08A2E;">04</span>
+          <div><div data-zh="天气模式：少淋一点雨" style="font-weight: 600; font-size: 15.5px; margin-bottom: 6px;">Weather mode: get less wet</div><p data-zh="下雨时自动把路线改成尽量走室内和有遮挡的路径。这是唯一一个不是从访谈里来、而是从香槟的天气里来的功能。" style="font-size: 13.5px; line-height: 1.75; color: #E9E6E0B3; margin: 0; max-width: 62ch;">When it rains, routes switch to indoor and covered paths. It is the one feature that came from the weather in Champaign rather than from an interview.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #E9E6E0; color: #14171A; padding: 54px 30px 58px;">
+    <div data-zh="05 — 测试与反思" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A6018; margin-bottom: 16px;">05 — Testing &amp; reflection</div>
+    <h2 data-zh="5 个同学，&lt;span style=&quot;color: #8A6018;&quot;&gt;改了很多层级&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(30px, 5.4vw, 78px); line-height: 1.02; text-transform: uppercase; margin: 0 0 22px;">Five classmates, <span style="color: #8A6018;">a lot of hierarchy fixes</span></h2>
+    <p data-zh="我做了用户画像、标注式走查来评估信息层级，然后和 5 位同学做可用性测试，据此迭代布局。最终方案满足 WCAG 的无障碍要求，并且把课表整合和实时空位这两件事做进了主流程。" style="font-size: 15px; line-height: 1.85; color: #14171AC7; max-width: 66ch; margin: 0 0 30px;">I built the personas, ran annotated walkthroughs to evaluate information hierarchy, then usability-tested with five peers and iterated the layouts. The final design meets WCAG accessibility needs and folds schedule integration and real-time availability into the main flow.</p>
+
+    <div style="display: flex; flex-direction: column; max-width: 78ch;">
+      <div data-zh="模式太多，第一次打开会不知道该选哪个。如果重做，我会让 App 先猜一个模式，而不是让用户先做选择。" style="border-top: 1px solid #14171A26; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5;">Six modes is a lot to face on first open. If I redid it, the app would guess a mode first instead of asking the user to choose one.</div>
+      <div data-zh="实时占用是整个产品的信任基础。数据一次不准，用户就再也不看了——这部分应该先做数据来源的验证。" style="border-top: 1px solid #14171A26; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5;">Live occupancy is where the trust sits. One wrong number and people stop checking — the data source needed validating before the UI did.</div>
+      <div data-zh="语言支持不能只是翻译界面。真正的问题是建筑名、缩写和校园俗称——这些才是国际学生看不懂的部分。" style="border-top: 1px solid #14171A26; border-bottom: 1px solid #14171A26; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5;">Language support is not just translating the UI. The real problem is building names, abbreviations and campus slang — that is the part international students cannot parse.</div>
+    </div>
+  </div>
+
+  <a href="case-mailmind.dc.html" style="display: flex; justify-content: space-between; align-items: center; padding: 42px 30px; border-top: 1px solid #E9E6E01F; color: #E9E6E0;" style-hover="background: #1C2126;">
+    <div>
+      <div data-zh="下一个项目" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #C08A2E; margin-bottom: 10px;">Next project</div>
+      <div style="font-family: 'Anton', sans-serif; font-size: clamp(30px, 5vw, 68px); line-height: 1.02; text-transform: uppercase;">MailMind</div>
+    </div>
+    <span style="font-size: 34px; color: #C08A2E;">→</span>
+  </a>
+
+  <div style="padding: 20px 30px 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #E9E6E066;">
+    <span>© 2026 Chase Xinru Rummery · 项心如</span>
+    <a href="mailto:chaserummery@gmail.com">chaserummery@gmail.com</a>
+  </div>
+
+  <div data-lightbox="1" style="position: fixed; inset: 0; z-index: 500; display: none; align-items: center; justify-content: center; background: #0A0C0EF2; padding: 40px; cursor: zoom-out;">
+    <img alt="" style="max-width: 94vw; max-height: 88vh; width: auto; height: auto; box-shadow: 0 40px 90px #000000A6;" />
+    <div style="position: absolute; top: 22px; right: 26px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #E9E6E099;">Click anywhere to close</div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C08A2E&quot;,&quot;options&quot;:[&quot;#C08A2E&quot;,&quot;#9DC6E0&quot;,&quot;#E08B3A&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Style&quot;}}">
+class Component extends DCLogic {
+  state = { zh: false };
+
+  renderVals() { return { toggleLang: () => this.swap() }; }
+
+  swap() {
+    const zh = !this.state.zh;
+    this.setState({ zh });
+    document.querySelectorAll('[data-zh]').forEach(n => {
+      if (!n.dataset.en) n.dataset.en = n.innerHTML;
+      n.innerHTML = zh ? n.dataset.zh : n.dataset.en;
+      n.style.fontFamily = zh ? "'Noto Sans SC', sans-serif" : '';
+    });
+  }
+
+  componentDidMount() {
+    this.initReveal();
+    this.initRail();
+    this.initLightbox();
+  }
+
+  initRail() {
+    document.querySelectorAll('[data-rail]').forEach(rail => {
+      rail.addEventListener('wheel', e => {
+        const horizontal = e.shiftKey || Math.abs(e.deltaX) > Math.abs(e.deltaY) * 1.2;
+        if (!horizontal) return;
+        e.preventDefault();
+        rail.scrollLeft += (e.deltaX || e.deltaY);
+      }, { passive: false });
+      let down = false, sx = 0, sl = 0;
+      rail.addEventListener('mousedown', e => { down = true; sx = e.clientX; sl = rail.scrollLeft; });
+      window.addEventListener('mousemove', e => {
+        if (!down) return;
+        e.preventDefault();
+        rail.scrollLeft = sl - (e.clientX - sx);
+      });
+      window.addEventListener('mouseup', () => { down = false; });
+    });
+  }
+
+  initLightbox() {
+    const box = document.querySelector('[data-lightbox]');
+    if (!box) return;
+    const img = box.querySelector('img');
+    const close = () => { box.style.display = 'none'; };
+    box.addEventListener('click', close);
+    window.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    document.querySelectorAll('[data-zoom]').forEach(el => {
+      let moved = false, sx = 0;
+      el.addEventListener('mousedown', e => { moved = false; sx = e.clientX; });
+      el.addEventListener('mousemove', e => { if (Math.abs(e.clientX - sx) > 6) moved = true; });
+      el.addEventListener('click', () => {
+        if (moved) return;
+        img.src = el.dataset.zoom;
+        box.style.display = 'flex';
+      });
+    });
+  }
+
+  initDrag() {
+    const hint = document.querySelector('[data-dragme]');
+    let z = 10;
+    document.querySelectorAll('[data-drag]').forEach(card => {
+      const base = card.style.transform;
+      let dx = 0, dy = 0, ox = 0, oy = 0, sx = 0, sy = 0;
+      card.addEventListener('mousedown', e => {
+        e.preventDefault();
+        if (hint) hint.style.display = 'none';
+        sx = e.clientX; sy = e.clientY; ox = dx; oy = dy;
+        card.style.cursor = 'grabbing';
+        card.style.zIndex = ++z + 20;
+        const move = ev => {
+          dx = ox + ev.clientX - sx; dy = oy + ev.clientY - sy;
+          card.style.transform = 'translate(' + dx + 'px,' + dy + 'px) ' + base;
+        };
+        const up = () => {
+          card.style.cursor = 'grab';
+          window.removeEventListener('mousemove', move);
+          window.removeEventListener('mouseup', up);
+        };
+        window.addEventListener('mousemove', move);
+        window.addEventListener('mouseup', up);
+      });
+    });
+  }
+
+  initReveal() {
+    const show = n => { n.style.opacity = ''; n.style.animation = 'fadeUp 0.8s cubic-bezier(0.2,0.8,0.2,1) both'; };
+    const pending = new Set();
+    Array.from(document.querySelectorAll('h2')).forEach(n => {
+      if (n.getBoundingClientRect().top < window.innerHeight * 0.94) { show(n); return; }
+      n.style.opacity = '0';
+      pending.add(n);
+    });
+    const sweep = () => {
+      pending.forEach(n => {
+        if (n.getBoundingClientRect().top < window.innerHeight * 0.94) { show(n); pending.delete(n); }
+      });
+      if (!pending.size) window.removeEventListener('scroll', sweep);
+    };
+    window.addEventListener('scroll', sweep, { passive: true });
+    setTimeout(() => { pending.forEach(show); pending.clear(); }, 6000);
+  }
+}
+
+</script>
+</body>
+</html>

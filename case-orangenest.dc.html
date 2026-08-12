@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #1A1714; }
+  * { box-sizing: border-box; }
+  a { color: #E08B3A; text-decoration: none; }
+  a:hover { color: #F4C27E; }
+  ::selection { background: #E08B3A; color: #1A1714; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  @media (max-width: 900px) {
+    [data-two] { grid-template-columns: minmax(0, 1fr) !important; }
+    [data-sec] { grid-template-columns: minmax(0, 1fr) !important; }
+    [data-three] { grid-template-columns: minmax(0, 1fr) !important; }
+  }
+</style>
+</helmet>
+
+<div style="background: #1A1714; color: #EFE8DF; font-family: 'Archivo', system-ui, sans-serif; overflow-x: hidden; position: relative;">
+
+  <div style="position: fixed; inset: 0; z-index: 400; pointer-events: none; opacity: 0.16; mix-blend-mode: overlay; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+
+  <div style="position: fixed; top: 18px; left: 22px; right: 22px; z-index: 90; display: flex; justify-content: space-between; pointer-events: none;">
+    <a href="portfolio-home-v4.dc.html#work" data-zh="← 返回项目列表" style="pointer-events: auto; background: #EFE8DF; color: #1A1714; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 16px;" style-hover="background: #E08B3A;">← All work</a>
+    <div style="display: flex; gap: 8px; pointer-events: auto;">
+      <a href="case-imap.dc.html" data-zh="下一个 →" style="background: #EFE8DF; color: #1A1714; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 16px;" style-hover="background: #E08B3A;">Next →</a>
+      <button onClick="{{ toggleLang }}" style="background: #E08B3A; color: #1A1714; border: none; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; padding: 11px 14px; cursor: pointer;" style-hover="background: #EFE8DF;">中 / EN</button>
+    </div>
+  </div>
+
+  <div style="position: relative; min-height: 92vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 30px 44px; overflow: hidden;">
+    <img src="img/photo-street.jpg" alt="Student apartments on Chalmers Street, Champaign" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% 42%; filter: brightness(0.52) contrast(1.08) saturate(1.02);" />
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, #1A1714B3 0%, #1A171433 34%, #1A1714F2 100%);"></div>
+    <div style="position: absolute; inset: 0; opacity: 0.3; mix-blend-mode: overlay; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E&quot;);"></div>
+
+    <div style="position: relative;">
+      <div data-zh="项目 02 · 独立项目 · 已上线" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.26em; text-transform: uppercase; color: #EFE8DFA6; margin-bottom: 18px;">Project 02 · Independent · Shipped</div>
+      <h1 style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(46px, 12vw, 190px); line-height: 1.02; letter-spacing: -0.015em; margin: 0; text-transform: uppercase;">ORANGENEST<br /><span style="font-family: 'Noto Sans SC', sans-serif; font-weight: 700; font-size: 0.44em; color: #E08B3A;">橙舍</span></h1>
+      <p data-zh="给 UIUC 国际学生做的转租平台。真实房源、直接微信联系、能筛真正在意的条件——包括能不能养宠物。" style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(19px, 2.2vw, 31px); line-height: 1.42; max-width: 36ch; margin: 24px 0 0; color: #EFE8DF;">A sublease platform for UIUC international students. Real listings, direct WeChat contact, and filters for what actually matters — including pets.</p>
+      <div style="font-family: 'Caveat', cursive; font-size: 21px; color: #F4C27E; margin-top: 18px;">Chalmers Street — the blocks everyone is trying to sublease on. Photo mine.</div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: #EFE8DF2E; margin: 0 30px;">
+    <div style="background: #1A1714; padding: 17px 19px;"><div data-zh="类型" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #E08B3A; margin-bottom: 8px;">Type</div><div data-zh="独立项目，自己发起" style="font-size: 13.5px; color: #EFE8DFD9;">Personal project, self-initiated</div></div>
+    <div style="background: #1A1714; padding: 17px 19px;"><div data-zh="周期" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #E08B3A; margin-bottom: 8px;">Timeline</div><div data-zh="2026 年 8 月起，持续中" style="font-size: 13.5px; color: #EFE8DFD9;">Since August 2026, ongoing</div></div>
+    <div style="background: #1A1714; padding: 17px 19px;"><div data-zh="我的角色" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #E08B3A; margin-bottom: 8px;">Role</div><div data-zh="设计与开发，一个人" style="font-size: 13.5px; color: #EFE8DFD9;">Sole designer and developer</div></div>
+    <div style="background: #E08B3A; padding: 17px 19px;"><div data-zh="技术栈" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #1A1714A6; margin-bottom: 8px;">Stack</div><div style="font-size: 13.5px; color: #1A1714; font-weight: 600;">Figma · HTML/CSS · Supabase · Vercel</div></div>
+  </div>
+
+  <div data-sec="1" style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; padding: 52px 30px 44px;">
+    <div data-zh="01 — 起因" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #E08B3A;">01 — Origin</div>
+    <div>
+      <h2 data-zh="从一次&lt;span style=&quot;color: #E08B3A;&quot;&gt;真的急事&lt;/span&gt;开始" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0 0 20px;">It started with <span style="color: #E08B3A;">a real emergency</span></h2>
+      <p data-zh="一个朋友临时要在 UIUC 附近找短租。我花了几个小时打电话、加陌生人微信、反复刷小红书——美国时间下午一点，国内所有人都还在睡。" style="font-size: 14.5px; line-height: 1.85; color: #EFE8DFC7; max-width: 62ch; margin: 0 0 26px;">A friend needed short-term housing near UIUC on short notice. I spent hours making calls, adding strangers on WeChat and refreshing Xiaohongshu — at 1pm US time, while every contact in China was still asleep.</p>
+      <div style="border-left: 2px solid #E08B3A; padding: 6px 0 6px 22px; margin: 0 0 26px;">
+        <p data-zh="“最后能找到，是因为刚好有人看到我们的求租帖主动联系。但运气不是产品。”" style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(21px, 2.6vw, 34px); line-height: 1.35; margin: 0; color: #EFE8DF;">"We eventually found a place because someone happened to see our wanted post and reached out. Luck is not a product."</p>
+      </div>
+      <p data-zh="问题不是房子不够，也不是没人想转租。问题是两边没有一个可靠的地方能快速找到彼此。OrangeNest 就是去补这个缺口。" style="font-size: 14.5px; line-height: 1.85; color: #EFE8DFC7; max-width: 62ch; margin: 0;">The problem was not a lack of housing, or a lack of people wanting to sublease. It was that neither side had a reliable place to find the other quickly. That gap is what OrangeNest closes.</p>
+    </div>
+  </div>
+
+  <div data-three="1" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 0 30px;">
+    <div data-zoom="img/photo-dusk.jpg" style="height: 420px; overflow: hidden; background: #241F1A; cursor: zoom-in;"><img src="img/photo-dusk.jpg" alt="Champaign at dusk" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; display: block;" /></div>
+    <div data-zoom="img/photo-night.jpg" style="height: 420px; overflow: hidden; background: #241F1A; cursor: zoom-in;"><img src="img/photo-night.jpg" alt="Green Street at night" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%; display: block;" /></div>
+    <div data-zoom="img/photo-street.jpg" style="height: 420px; overflow: hidden; background: #241F1A; cursor: zoom-in;"><img src="img/photo-street.jpg" alt="Student apartments in daylight" style="width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; display: block;" /></div>
+  </div>
+  <div data-zh="香槟的房子，都是我自己拍的。点开可以看大图。" style="font-family: 'Caveat', cursive; font-size: 20px; color: #F4C27E; padding: 12px 30px 0;">Housing in Champaign, all my own photos — click any of them to enlarge.</div>
+
+  <div data-sec="1" style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; padding: 48px 30px 44px;">
+    <div data-zh="02 — 六个问题" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #E08B3A;">02 — Six problems</div>
+    <div>
+      <h2 data-zh="六个问题叠在一起，&lt;span style=&quot;color: #E08B3A;&quot;&gt;就成了找不到房&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0 0 24px;">Six problems stacked into <span style="color: #E08B3A;">one impossible search</span></h2>
+      <div data-two="1" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div style="background: #EFE8DF; color: #1A1714; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #B26A1E; margin-bottom: 8px;">01</div><div data-zh="时差" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">Time zone friction</div><p data-zh="美国下午一两点找房，国内的中介和房东都还没起。急着要住的时候，几个小时的等待就是找到和找不到的区别。" style="font-size: 13px; line-height: 1.7; color: #1A1714BF; margin: 0;">Searching at 1–2pm US time means contacts in China are not awake yet. For a last-minute need, a few hours is the difference between finding housing and not.</p></div>
+        <div style="background: #EFE8DF; color: #1A1714; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #B26A1E; margin-bottom: 8px;">02</div><div data-zh="中间人不靠谱" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">Unreliable intermediaries</div><p data-zh="“我帮你问问。”“加我微信。”“留个电话。”每个中介都有一套说法，没有一个跟到底。问题不是没有中介，是没法知道哪个真的会办事。" style="font-size: 13px; line-height: 1.7; color: #1A1714BF; margin: 0;">"I'll check for you." "Add me on WeChat." Every agent had a version of this; none followed through. The problem was not the absence of agents — it was having no way to know which one would deliver.</p></div>
+        <div style="background: #EFE8DF; color: #1A1714; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #B26A1E; margin-bottom: 8px;">03</div><div data-zh="信息太散" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">Scattered information</div><p data-zh="小红书要不停搜、发求租、手动筛，而且看不出还在不在。看到一条房源，还得再走一轮微信才能确认。" style="font-size: 13px; line-height: 1.7; color: #1A1714BF; margin: 0;">Xiaohongshu meant constant searching and manual filtering, with no indication of availability. Finding a listing meant another round of WeChat before anything was confirmed.</p></div>
+        <div style="background: #EFE8DF; color: #1A1714; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #B26A1E; margin-bottom: 8px;">04</div><div data-zh="短租供给太少" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">Short-term supply is thin</div><p data-zh="大平台上几乎都是长租。中介也直说：住一个月左右，只有转租这条路。需求不是「找一间公寓」，而是「找一个正要走、愿意把租约临时转出来的人」。" style="font-size: 13px; line-height: 1.7; color: #1A1714BF; margin: 0;">Most platforms carry long leases. Agents confirmed it: for a stay of about a month, sublease is the only real option. The need was not "find an apartment" but "find someone leaving who will hand over their lease."</p></div>
+        <div style="background: #EFE8DF; color: #1A1714; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #B26A1E; margin-bottom: 8px;">05</div><div data-zh="宠物把选择又砍一半" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">Pets narrow it further</div><p data-zh="我朋友有一只猫。其他条件都完美的房源，可能在最后一步掉链子。这个条件必须放到最前面，而不是埋在聊天里。" style="font-size: 13px; line-height: 1.7; color: #1A1714BF; margin: 0;">My friend has a cat. A listing that looked perfect on every other dimension could still fall through at the last step. That filter had to be up front, not buried in a conversation.</p></div>
+        <div style="background: #EFE8DF; color: #1A1714; padding: 20px 22px;"><div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #B26A1E; margin-bottom: 8px;">06</div><div data-zh="没有一个可信的信息源" style="font-weight: 600; font-size: 15px; margin-bottom: 6px;">No single source of truth</div><p data-zh="真正的问题是：没有任何一个地方能看到「现在有哪些转租可用」，并且入住日期、结束日期、价格、宠物政策、联系方式都摆在明面上。" style="font-size: 13px; line-height: 1.7; color: #1A1714BF; margin: 0;">The real problem: nowhere to see which subleases are available right now, with move-in date, end date, price, pet policy and direct contact all visible up front.</p></div>
+      </div>
+
+      <div style="background: #E08B3A; color: #1A1714; padding: 24px 26px; margin-top: 20px;">
+        <div data-zh="核心判断" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #1A1714A6; margin-bottom: 10px;">Core insight</div>
+        <p data-zh="这不是住房问题，是临时匹配问题。供给和需求同时存在，只是没有一个共同的、可信的地方能碰上。" style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(20px, 2.4vw, 32px); line-height: 1.35; margin: 0; font-weight: 400;">This was not a housing problem. It was a last-minute matching problem. Supply and demand existed at the same time — they just had no shared, reliable place to meet.</p>
+      </div>
+    </div>
+  </div>
+
+  <div data-sec="1" style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; padding: 8px 30px 44px;">
+    <div data-zh="03 — 设计决定" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #E08B3A;">03 — Decisions</div>
+    <div>
+      <h2 data-zh="每个决定都来自&lt;span style=&quot;color: #E08B3A;&quot;&gt;那次找房本身&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0 0 20px;">Every choice came from <span style="color: #E08B3A;">the search itself</span></h2>
+      <p data-zh="这个项目我没做正式用户访谈——研究就是我自己的经历。当你自己就是那个有需求的人，产品要什么反而特别清楚：我知道在决定联系一个人之前，我必须先看到哪些信息。" style="font-size: 14.5px; line-height: 1.85; color: #EFE8DFC7; max-width: 62ch; margin: 0 0 24px;">I did not run formal interviews here — the research was my own experience. Being the person with the need made the requirements unusually clear: I knew exactly what I had to see before deciding to contact someone.</p>
+      <div data-two="1" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div style="border: 1px solid #EFE8DF2E; padding: 20px 22px;"><div data-zh="品牌 — 香槟的落日橙" style="font-weight: 600; font-size: 15px; margin-bottom: 7px;">Brand — sunset orange, from Champaign</div><p data-zh="橙色是 UIUC 的主色，对在校学生来说联想是即时的。整体色调偏暖、偏居住感，不像通用租房 App，更接近高端房产。字体用 DM Serif Display 配 DM Sans。" style="font-size: 13px; line-height: 1.75; color: #EFE8DFB3; margin: 0;">Orange is UIUC's primary color, so the association is immediate. The palette runs warm and residential rather than corporate — closer to high-end real estate than a generic rental app. Type is DM Serif Display with DM Sans.</p></div>
+        <div style="border: 1px solid #EFE8DF2E; padding: 20px 22px;"><div data-zh="联系 — 微信优先，不要中间人" style="font-weight: 600; font-size: 15px; margin-bottom: 7px;">Contact — WeChat first, no middleman</div><p data-zh="UIUC 中国学生社群本来就在微信上沟通。再加一层站内消息，等于把平台想解决的摩擦又造回来。" style="font-size: 13px; line-height: 1.75; color: #EFE8DFB3; margin: 0;">This is how the UIUC Chinese student community already talks. Adding another messaging layer would recreate the exact friction the platform exists to remove.</p></div>
+        <div style="border: 1px solid #EFE8DF2E; padding: 20px 22px;"><div data-zh="房源卡 — 决定联系前要看的六件事" style="font-weight: 600; font-size: 15px; margin-bottom: 7px;">Listing card — six things before you reach out</div><p data-zh="地址、价格、可入住起止时间、占用日期、宠物政策、紧急标记。不用点进去就能判断值不值得联系。" style="font-size: 13px; line-height: 1.75; color: #EFE8DFB3; margin: 0;">Address, price, available from and to, occupancy dates, pet policy, urgency flag — enough to decide whether it is worth contacting, without clicking through.</p></div>
+        <div style="border: 1px solid #EFE8DF2E; padding: 20px 22px;"><div data-zh="发布 — 三步，别让人有压力" style="font-weight: 600; font-size: 15px; margin-bottom: 7px;">Publish — three steps, low commitment</div><p data-zh="多数转租平台一上来就要太多信息。三步能把门槛压到「有租约要转的人真的会发」，而不是填一半就走。" style="font-size: 13px; line-height: 1.75; color: #EFE8DFB3; margin: 0;">Most sublease platforms ask for too much up front. Three steps keeps the barrier low enough that someone with a lease to hand off actually posts instead of abandoning the form.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 12px 0 24px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; padding: 0 30px 20px;">
+      <div>
+        <div data-zh="04 — 上线的网站" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #E08B3A; margin-bottom: 12px;">04 — The live site</div>
+        <h2 data-zh="每一屏，&lt;span style=&quot;color: #E08B3A;&quot;&gt;完整地放在这里&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0;">Every screen, <span style="color: #E08B3A;">shown in full</span></h2>
+        <div data-zh="两指左右滑动或按住拖动；点开看大图。" style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #EFE8DF80; margin-top: 12px;">Swipe or drag sideways · click to enlarge</div>
+      </div>
+      <a href="https://www.orangenest.co/" target="_blank" style="background: #E08B3A; color: #1A1714; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.02em; padding: 17px 30px; border-radius: 999px; white-space: nowrap;" style-hover="background: #EFE8DF;" data-zh="打开 orangenest.co ↗">Open orangenest.co ↗</a>
+    </div>
+    <div data-rail="1" style="display: flex; gap: 26px; overflow-x: auto; padding: 6px 30px 22px; scrollbar-width: none; cursor: grab;">
+      <figure style="flex: 0 0 auto; margin: 0; width: min(78vw, 980px);">
+        <div data-zoom="img/orangenest-cover.png" style="background: #F6F1E9; padding: 10px; box-shadow: 0 22px 46px #00000080; cursor: zoom-in;">
+          <img src="img/orangenest-cover.png" alt="Homepage — listings and filters" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="font-family: 'Caveat', cursive; font-size: 21px; color: #F4C27E; padding: 11px 2px 0;">Homepage — listings and filters</figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: min(78vw, 980px);">
+        <div data-zoom="img/orangenest-2.png" style="background: #F6F1E9; padding: 10px; box-shadow: 0 22px 46px #00000080; cursor: zoom-in;">
+          <img src="img/orangenest-2.png" alt="Availability calendar and map" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="font-family: 'Caveat', cursive; font-size: 21px; color: #F4C27E; padding: 11px 2px 0;">Availability calendar and map</figcaption>
+      </figure>
+      <figure style="flex: 0 0 auto; margin: 0; width: min(78vw, 980px);">
+        <div data-zoom="img/orangenest-3.png" style="background: #F6F1E9; padding: 10px; box-shadow: 0 22px 46px #00000080; cursor: zoom-in;">
+          <img src="img/orangenest-3.png" alt="Shareable card for WeChat" style="display: block; width: 100%; height: auto;" />
+        </div>
+        <figcaption style="font-family: 'Caveat', cursive; font-size: 21px; color: #F4C27E; padding: 11px 2px 0;">Shareable card for WeChat</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div style="background: #EFE8DF; color: #1A1714; padding: 54px 30px 58px;">
+    <div data-zh="05 — 早期验证" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #B26A1E; margin-bottom: 16px;">05 — Early validation</div>
+    <h2 data-zh="有人把它&lt;span style=&quot;color: #B26A1E;&quot;&gt;推荐给了我自己&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(30px, 5.4vw, 78px); line-height: 1.02; text-transform: uppercase; margin: 0 0 22px;">Someone recommended it <span style="color: #B26A1E;">back to me</span></h2>
+    <p data-zh="我在小红书发了一条演示视频之后，一个我找房时联系过的学生主动找我——他不知道这是我做的。他把我的视频转发给我，说看着挺有用、是 UIUC 学生做的，让我以后要找房可以看看。" style="font-size: 15px; line-height: 1.85; color: #1A1714C7; max-width: 66ch; margin: 0 0 14px;">After I posted a demo video on Xiaohongshu, a student I had contacted during my own search reached out — not knowing I had built it. He forwarded my own video to me, said it looked useful, that a UIUC student made it, and that I should check it out next time I needed housing.</p>
+    <p data-zh="他手上有一间房，人却在国内，正急着转出去。我们之前聊过，但价格和入住时间没谈成。他并不知道他推荐的是我自己的产品。" style="font-size: 15px; line-height: 1.85; color: #1A1714C7; max-width: 66ch; margin: 0 0 14px;">He had a unit available but was back in China, trying to sublease it quickly. We had spoken before and could not agree on price and dates. He had no idea he was recommending my own product to me.</p>
+    <p data-zh="那一刻确认了两件事：这个问题足够真实，真实到人们看到解法会认得出来；而供需之间的缺口，是两边同时存在的。" style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(20px, 2.4vw, 31px); line-height: 1.4; max-width: 52ch; margin: 22px 0 0;">That confirmed two things: the problem is real enough that people recognize the solution when they see it, and the gap between supply and demand exists on both sides at once.</p>
+  </div>
+
+  <div data-sec="1" style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; padding: 48px 30px 40px;">
+    <div data-zh="06 — 技术与下一步" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #E08B3A;">06 — Build &amp; next</div>
+    <div>
+      <h2 data-zh="边做边把技术栈&lt;span style=&quot;color: #E08B3A;&quot;&gt;学下来&lt;/span&gt;" style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; text-transform: uppercase; margin: 0 0 20px;">Learned the stack <span style="color: #E08B3A;">by building it</span></h2>
+      <p data-zh="我拿这个项目当学 Supabase 的场景：建房源表、配置行级安全策略、开一个公开的图片存储桶。前端是 HTML 和 CSS，部署在 Vercel。选这套是为了省钱和快——目前规模下整个平台是零成本运行的。一个 Figma 原型是一个观点；一个跑着数据库的线上平台是证据。" style="font-size: 14.5px; line-height: 1.85; color: #EFE8DFC7; max-width: 62ch; margin: 0 0 26px;">I used this project as the context for learning Supabase — the listings table, row-level security policies, a public storage bucket for photos. Front end is HTML and CSS, deployed on Vercel. The stack was chosen to minimize cost and maximize iteration speed; at current scale the whole platform runs for free. A Figma prototype of a housing platform is an argument. A deployed platform with a working database is evidence.</p>
+      <div style="display: flex; flex-direction: column; max-width: 74ch;">
+        <div data-zh="下一步做微信小程序版。目标用户本来就整天在微信里——网页解决了「被发现」，小程序才能解决整个流程。" style="border-top: 1px solid #EFE8DF24; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5;">Next: a WeChat mini-program. That is where the target users already spend their time — the web solves discovery, a mini-program would solve the whole workflow.</div>
+        <div data-zh="加上房源真实性验证。信任是这个产品唯一真正的护城河。" style="border-top: 1px solid #EFE8DF24; border-bottom: 1px solid #EFE8DF24; padding: 15px 0; font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.5;">Then listing verification. Trust is the only real moat this product has.</div>
+      </div>
+    </div>
+  </div>
+
+  <a href="case-imap.dc.html" style="display: flex; justify-content: space-between; align-items: center; padding: 42px 30px; border-top: 1px solid #EFE8DF1F; color: #EFE8DF;" style-hover="background: #241F1A;">
+    <div>
+      <div data-zh="下一个项目" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #E08B3A; margin-bottom: 10px;">Next project</div>
+      <div style="font-family: 'Anton', sans-serif; font-size: clamp(30px, 5vw, 68px); line-height: 1.02; text-transform: uppercase;">iMAP</div>
+    </div>
+    <span style="font-size: 34px; color: #E08B3A;">→</span>
+  </a>
+
+  <div style="padding: 20px 30px 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #EFE8DF66;">
+    <span>© 2026 Chase Xinru Rummery · 项心如</span>
+    <a href="mailto:chaserummery@gmail.com">chaserummery@gmail.com</a>
+  </div>
+
+  <div data-lightbox="1" style="position: fixed; inset: 0; z-index: 500; display: none; align-items: center; justify-content: center; background: #0C0B09F2; padding: 40px; cursor: zoom-out;">
+    <img alt="" style="max-width: 94vw; max-height: 88vh; width: auto; height: auto; box-shadow: 0 40px 90px #000000A6;" />
+    <div style="position: absolute; top: 22px; right: 26px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #EFE8DF99;">Click anywhere to close</div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#E08B3A&quot;,&quot;options&quot;:[&quot;#E08B3A&quot;,&quot;#C08A2E&quot;,&quot;#D9542B&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Style&quot;}}">
+class Component extends DCLogic {
+  state = { zh: false };
+
+  renderVals() { return { toggleLang: () => this.swap() }; }
+
+  swap() {
+    const zh = !this.state.zh;
+    this.setState({ zh });
+    document.querySelectorAll('[data-zh]').forEach(n => {
+      if (!n.dataset.en) n.dataset.en = n.innerHTML;
+      n.innerHTML = zh ? n.dataset.zh : n.dataset.en;
+      n.style.fontFamily = zh ? "'Noto Sans SC', sans-serif" : '';
+    });
+  }
+
+  componentDidMount() {
+    this.initReveal();
+    this.initRail();
+    this.initLightbox();
+  }
+
+  initRail() {
+    document.querySelectorAll('[data-rail]').forEach(rail => {
+      rail.addEventListener('wheel', e => {
+        const horizontal = e.shiftKey || Math.abs(e.deltaX) > Math.abs(e.deltaY) * 1.2;
+        if (!horizontal) return;
+        e.preventDefault();
+        rail.scrollLeft += (e.deltaX || e.deltaY);
+      }, { passive: false });
+      let down = false, sx = 0, sl = 0;
+      rail.addEventListener('mousedown', e => { down = true; sx = e.clientX; sl = rail.scrollLeft; });
+      window.addEventListener('mousemove', e => {
+        if (!down) return;
+        e.preventDefault();
+        rail.scrollLeft = sl - (e.clientX - sx);
+      });
+      window.addEventListener('mouseup', () => { down = false; });
+    });
+  }
+
+  initLightbox() {
+    const box = document.querySelector('[data-lightbox]');
+    if (!box) return;
+    const img = box.querySelector('img');
+    const close = () => { box.style.display = 'none'; };
+    box.addEventListener('click', close);
+    window.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    document.querySelectorAll('[data-zoom]').forEach(el => {
+      let moved = false, sx = 0;
+      el.addEventListener('mousedown', e => { moved = false; sx = e.clientX; });
+      el.addEventListener('mousemove', e => { if (Math.abs(e.clientX - sx) > 6) moved = true; });
+      el.addEventListener('click', () => {
+        if (moved) return;
+        img.src = el.dataset.zoom;
+        box.style.display = 'flex';
+      });
+    });
+  }
+
+  initDrag() {
+    const hint = document.querySelector('[data-dragme]');
+    let z = 10;
+    document.querySelectorAll('[data-drag]').forEach(card => {
+      const base = card.style.transform;
+      let dx = 0, dy = 0, ox = 0, oy = 0, sx = 0, sy = 0;
+      card.addEventListener('mousedown', e => {
+        e.preventDefault();
+        if (hint) hint.style.display = 'none';
+        sx = e.clientX; sy = e.clientY; ox = dx; oy = dy;
+        card.style.cursor = 'grabbing';
+        card.style.zIndex = ++z + 20;
+        const move = ev => {
+          dx = ox + ev.clientX - sx; dy = oy + ev.clientY - sy;
+          card.style.transform = 'translate(' + dx + 'px,' + dy + 'px) ' + base;
+        };
+        const up = () => {
+          card.style.cursor = 'grab';
+          window.removeEventListener('mousemove', move);
+          window.removeEventListener('mouseup', up);
+        };
+        window.addEventListener('mousemove', move);
+        window.addEventListener('mouseup', up);
+      });
+    });
+  }
+
+  initReveal() {
+    const show = n => { n.style.opacity = ''; n.style.animation = 'fadeUp 0.8s cubic-bezier(0.2,0.8,0.2,1) both'; };
+    const pending = new Set();
+    Array.from(document.querySelectorAll('h2')).forEach(n => {
+      if (n.getBoundingClientRect().top < window.innerHeight * 0.94) { show(n); return; }
+      n.style.opacity = '0';
+      pending.add(n);
+    });
+    const sweep = () => {
+      pending.forEach(n => {
+        if (n.getBoundingClientRect().top < window.innerHeight * 0.94) { show(n); pending.delete(n); }
+      });
+      if (!pending.size) window.removeEventListener('scroll', sweep);
+    };
+    window.addEventListener('scroll', sweep, { passive: true });
+    setTimeout(() => { pending.forEach(show); pending.clear(); }, 6000);
+  }
+}
+
+</script>
+</body>
+</html>
