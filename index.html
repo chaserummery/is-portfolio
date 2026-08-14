@@ -534,11 +534,14 @@ class Component extends DCLogic {
       loading.style.animation = 'blink 1.1s infinite';
       out.appendChild(loading);
       try {
-        const res = await window.claude.complete({
-          max_tokens: 900,
-          system: 'You are the extraction engine behind MailMind, a student email organizer. Return ONLY valid JSON, no prose, no markdown fences.',
-          messages: [{ role: 'user', content: 'Extract from this email. JSON shape: {"summary": "one sentence, max 18 words", "entries": [{"kind": "DEADLINE|APPOINTMENT|PACKAGE|EVENT|NOTICE", "title": "max 8 words", "when": "date/time as written, or empty", "detail": "max 14 words"}]}. Max 6 entries, ordered by urgency.\n\nEMAIL:\n' + text }]
+        const response = await fetch('https://mailmind.chaserummery.workers.dev', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ emailText: text })
         });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'API error');
+        const res = data.result;
         this.paint(out, JSON.parse(res.replace(/^[^{]*/, '').replace(/[^}]*$/, '')));
       } catch (err) {
         out.textContent = 'Something broke: ' + (err && err.message ? err.message : err);
