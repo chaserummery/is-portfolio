@@ -21,6 +21,10 @@
   @keyframes fadeUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
   @keyframes floatCoin { 0%, 100% { transform: translateY(-6px); } 50% { transform: translateY(6px); } }
   @keyframes blink { 50% { opacity: 0.3; } }
+  [data-pair] > [data-shot] { transform-origin: bottom center; transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s; }
+  [data-pair] > [data-shot]:nth-child(2) { transform: scale(0.84); z-index: 1; }
+  [data-pair]:has(> [data-shot]:nth-child(2):hover) > [data-shot]:nth-child(1) { transform: scale(0.84); z-index: 1; }
+  [data-pair]:has(> [data-shot]:nth-child(2):hover) > [data-shot]:nth-child(2) { transform: scale(1); z-index: 3; }
   @media (max-width: 1020px) {
     [data-card] { grid-template-columns: 62px minmax(0, 1fr) !important; }
     [data-card] > div:nth-child(3) { grid-column: 2; min-height: 200px; }
@@ -139,7 +143,7 @@
 
     <div style="display: flex; flex-direction: column; gap: 20px;">
 
-      <a data-card="1" href="case-mailmind.dc.html" style="display: grid; grid-template-columns: 62px minmax(0, 1fr) minmax(0, 350px); gap: 26px; background: #ECEAE4; color: #17160F; padding: 24px 26px; transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s;">
+      <a data-card="1" href="case-mailmind.dc.html" style="display: grid; grid-template-columns: 62px minmax(0, 1fr) minmax(0, 430px); gap: 26px; align-items: center; background: #ECEAE4; color: #17160F; padding: 24px 26px; transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s;">
         <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A8791F;">01</div>
         <div>
           <div style="font-family: 'Anton', sans-serif; font-size: clamp(28px, 3.6vw, 52px); line-height: 1.02; text-transform: uppercase; letter-spacing: -0.005em;">MailMind</div>
@@ -149,12 +153,17 @@
             <span style="border: 1px solid #17160F33; padding: 5px 10px;">IS 226 Interaction Design</span><span style="border: 1px solid #17160F33; padding: 5px 10px;">AI</span><span style="border: 1px solid #17160F33; padding: 5px 10px;">Mobile</span>
           </div>
         </div>
-        <div style="align-self: stretch; overflow: hidden; background: #DAD6CC;">
-          <img src="img/mailmind-cover.png" alt="MailMind screens" style="width: 100%; height: 100%; min-height: 200px; object-fit: cover; object-position: top; display: block;" />
+        <div data-media="1" data-pair="1" style="align-self: center; display: flex; align-items: flex-end; justify-content: center; gap: 5%; padding: 6px 0;">
+          <div data-shot="1" style="position: relative; width: 48%; padding: 7px; background: #FFFFFF; border: 1px solid #17160F1F; border-radius: 30px; box-shadow: 0 20px 40px #17160F33;">
+            <img src="img/mm/2-inbox.png" alt="MailMind inbox" style="display: block; width: 100%; height: auto; border-radius: 24px;" />
+          </div>
+          <div data-shot="1" style="position: relative; width: 48%; padding: 7px; background: #FFFFFF; border: 1px solid #17160F1F; border-radius: 30px; box-shadow: 0 16px 34px #17160F2E;">
+            <img src="img/mm/4-alert.png" alt="MailMind emergency alert" style="display: block; width: 100%; height: auto; border-radius: 24px;" />
+          </div>
         </div>
       </a>
 
-      <a data-card="1" href="case-orangenest.dc.html" style="display: grid; grid-template-columns: 62px minmax(0, 1fr) minmax(0, 350px); gap: 26px; background: #ECEAE4; color: #17160F; padding: 24px 26px; transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s;">
+      <a data-card="1" href="case-orangenest.dc.html" style="display: grid; grid-template-columns: 62px minmax(0, 1fr) minmax(0, 430px); gap: 26px; align-items: center; background: #ECEAE4; color: #17160F; padding: 24px 26px; transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s;">
         <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A8791F;">02</div>
         <div>
           <div style="font-family: 'Anton', sans-serif; font-size: clamp(28px, 3.6vw, 52px); line-height: 1.02; text-transform: uppercase; letter-spacing: -0.005em;">OrangeNest <span style="font-family: 'Noto Sans SC', sans-serif; font-weight: 500; font-size: 0.6em; color: #A8791F;">橙舍</span></div>
@@ -164,12 +173,14 @@
             <span style="border: 1px solid #17160F33; padding: 5px 10px;">Independent</span><span style="border: 1px solid #17160F33; padding: 5px 10px;">End-to-end</span><span style="background: #C08A2E; padding: 5px 10px;">Live</span>
           </div>
         </div>
-        <div style="align-self: stretch; overflow: hidden; background: #DAD6CC;">
-          <img src="img/orangenest-cover.png" alt="OrangeNest screens" style="width: 100%; height: 100%; min-height: 200px; object-fit: cover; object-position: top; display: block;" />
+        <div data-media="1" style="align-self: center; display: flex; align-items: center; justify-content: center; padding: 6px 0;">
+          <div style="width: 100%; padding: 7px; background: #FFFFFF; border: 1px solid #17160F1F; border-radius: 12px; box-shadow: 0 20px 40px #17160F33;">
+            <img src="img/orangenest-cover.png" alt="OrangeNest homepage" style="display: block; width: 100%; height: auto; border-radius: 7px;" />
+          </div>
         </div>
       </a>
 
-      <a data-card="1" href="case-imap.dc.html" style="display: grid; grid-template-columns: 62px minmax(0, 1fr) minmax(0, 350px); gap: 26px; background: #ECEAE4; color: #17160F; padding: 24px 26px; transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s;">
+      <a data-card="1" href="case-imap.dc.html" style="display: grid; grid-template-columns: 62px minmax(0, 1fr) minmax(0, 430px); gap: 26px; align-items: center; background: #ECEAE4; color: #17160F; padding: 24px 26px; transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s;">
         <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A8791F;">03</div>
         <div>
           <div style="font-family: 'Anton', sans-serif; font-size: clamp(28px, 3.6vw, 52px); line-height: 1.02; text-transform: uppercase; letter-spacing: -0.005em;">iMAP</div>
@@ -179,8 +190,13 @@
             <span style="border: 1px solid #17160F33; padding: 5px 10px;">INFO 333 UX Design</span><span style="border: 1px solid #17160F33; padding: 5px 10px;">Accessibility</span><span style="border: 1px solid #17160F33; padding: 5px 10px;">Research</span>
           </div>
         </div>
-        <div style="align-self: stretch; overflow: hidden; background: #DAD6CC;">
-          <img src="img/imap-1.png" alt="iMAP screens" style="width: 100%; height: 100%; min-height: 200px; object-fit: cover; object-position: top; display: block;" />
+        <div data-media="1" data-pair="1" style="align-self: center; display: flex; align-items: flex-end; justify-content: center; gap: 5%; padding: 6px 0;">
+          <div data-shot="1" style="position: relative; width: 48%; padding: 7px; background: #FFFFFF; border: 1px solid #17160F1F; border-radius: 30px; box-shadow: 0 20px 40px #17160F33;">
+            <img src="img/ip/06-home-map.png" alt="iMAP home map" style="display: block; width: 100%; height: auto; border-radius: 24px;" />
+          </div>
+          <div data-shot="1" style="position: relative; width: 48%; padding: 7px; background: #FFFFFF; border: 1px solid #17160F1F; border-radius: 30px; box-shadow: 0 16px 34px #17160F2E;">
+            <img src="img/ip/12-weather.png" alt="iMAP weather mode" style="display: block; width: 100%; height: auto; border-radius: 24px;" />
+          </div>
         </div>
       </a>
 
@@ -353,11 +369,11 @@ class Component extends DCLogic {
     const dismiss = (delay) => setTimeout(() => {
       gate.style.opacity = '0';
       gate.style.transform = 'scale(1.08)';
+      if (this.revealLines) this.revealLines();
       setTimeout(() => {
         gate.style.display = 'none';
         cancelAnimationFrame(this.gateRaf);
-        if (this.revealLines) this.revealLines();
-      }, 950);
+      }, 700);
     }, delay);
 
     const flap = gate.querySelector('[data-flap]');
@@ -370,8 +386,8 @@ class Component extends DCLogic {
       if (seal) { seal.style.transform = 'scale(0.4) rotate(-24deg)'; seal.style.opacity = '0'; }
       if (flap) flap.style.transform = 'rotateX(-174deg)';
       setTimeout(() => { if (flap) flap.style.zIndex = '0'; }, 420);
-      setTimeout(() => { if (letter) letter.style.transform = 'translateY(-58%) scale(1.03)'; }, 480);
-      dismiss(1500);
+      setTimeout(() => { if (letter) letter.style.transform = 'translateY(-58%) scale(1.03)'; }, 340);
+      dismiss(760);
     };
     gate.querySelectorAll('[data-seal]').forEach(el => el.addEventListener('click', openLetter));
     document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => { opened = true; dismiss(0); }));
@@ -420,11 +436,11 @@ class Component extends DCLogic {
       const inView = lines.filter(l => l.getBoundingClientRect().top < window.innerHeight * 0.78);
       inView.forEach((l, i) => setTimeout(() => {
         l.style.opacity = '1'; l.style.transform = 'none'; l.style.filter = 'none';
-      }, 260 + i * 420));
+      }, i * 260));
       setTimeout(() => {
         window.addEventListener('scroll', sweep, { passive: true });
         window.addEventListener('resize', sweep);
-      }, 260 + inView.length * 420);
+      }, inView.length * 260);
     };
     if (!document.querySelector('[data-gate]')) this.revealLines();
   }
